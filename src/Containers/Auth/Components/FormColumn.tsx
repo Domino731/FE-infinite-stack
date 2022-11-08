@@ -13,10 +13,10 @@ const gradient = keyframes`
 `
 
 export const FormColumn = styled.div`
- width: 50%;
- height: 100%;
- background-image: linear-gradient(135deg, #00DBDE 0%, #FC00FF 100%);
- background-size: 400% 400%;
- animation: ${gradient} 15s ease infinite;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(135deg, #00DBDE 0%, #FC00FF 100%);
+  background-size: 400% 400%;
+  animation: ${gradient} 15s ease infinite;
 `
 

@@ -1,7 +1,11 @@
 import {colors} from "./colors";
+import {spacing} from "./spacing";
+import {borderRadius} from "./borderRadous";
 
 const theme = {
-    colors
+    colors,
+    spacing,
+    borderRadius
 }
 
 export default theme;

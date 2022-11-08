@@ -9,12 +9,16 @@ import {Button} from "../../Components/Button";
 export const Login = () => {
     return <Flex h="100%">
         <FormColumn>
-                 <Logo/>
-                 <Box m="0 auto" p="16px" w="500px" bgColor="white" bR="6px">
-                     <Typography>Login</Typography>
-                     <Input/>
-                     <Button>Send</Button>
-                 </Box>
+            <Box h="20%" position='absolute'>
+                <Logo/>
+            </Box>
+            <Box h="100%" display="flex" justifyContent="center" alignItems="center">
+                <Box h="auto" m="0 auto" p="16px" w="500px" bgColor="white" bR="6px">
+                    <Typography>Login</Typography>
+                    <Input/>
+                    <Button>Send</Button>
+                </Box>
+            </Box>
         </FormColumn>
     </Flex>
 }
