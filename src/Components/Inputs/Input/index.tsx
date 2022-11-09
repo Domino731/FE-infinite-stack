@@ -1,8 +1,12 @@
 import {Label, InputComponent} from "./styles";
 
-const Input = () => {
-    return <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column'}}>
-       <Label>Label</Label>
+interface InputProps {
+    label?: string;
+}
+
+const Input = ({label}: InputProps) => {
+    return <div style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', marginBottom: '20px'}}>
+        {label && <Label>{label}</Label>}
         <InputComponent/>
     </div>
 }

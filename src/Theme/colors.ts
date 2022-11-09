@@ -1,4 +1,3 @@
-
 // https://davidpiesse.github.io/tailwind-md-colours/
 //
 //Notes
@@ -10,11 +9,12 @@
 // class="w-full bg-red-600 text-red-600-constrast"
 
 export const colors = {
-    white: {
-        '50': '#f0f9ff'
-    },
-    "transparent": "transparent",
+	white: {
+		'50': '#f0f9ff'
+	},
+	"transparent": "transparent",
 	"black": "#000000",
+	secondary: '#ff006e',
 
 	"red": "#f44336",
 	"red-50": "#ffebee",
