@@ -17,6 +17,6 @@ export const FormColumn = styled.div`
   height: 100%;
   background-image: linear-gradient(135deg, #00DBDE 0%, #FC00FF 100%);
   background-size: 400% 400%;
-  animation: ${gradient} 15s ease infinite;
+  animation: ${gradient} 5s ease infinite;
 `
 

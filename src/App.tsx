@@ -3,23 +3,24 @@ import './App.css';
 import {ThemeProvider} from "styled-components";
 import theme from "./Theme";
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+    BrowserRouter,
+    Routes,
+    Route,
 } from "react-router-dom";
-import {HOME_PATH} from "./Routes/const";
-import {Login} from "./Containers/Auth";
+import {APP_ROUTES} from "./Routes/const";
+import {Login, Register} from "./Containers/Auth";
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <Routes>
-            <Route path={HOME_PATH} element={<Login/>}/>
-          </Routes>
-        </BrowserRouter>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path={APP_ROUTES.HOME} element={<Login/>}/>
+                    <Route path={APP_ROUTES.REGISTER} element={<Register/>}/>
+                </Routes>
+            </BrowserRouter>
+        </ThemeProvider>
+    );
 }
 
 export default App;
