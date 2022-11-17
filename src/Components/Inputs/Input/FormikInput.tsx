@@ -8,10 +8,7 @@ interface FormikInputProps {
 
 export const FormikInput = ({name, label}: FormikInputProps) => {
     const [field, meta] = useField(name);
-    if (name === 'eMail') {
-        console.log('meta', meta);
-    }
-
+    
     return <Input
         onBlur={field.onBlur}
         onChange={field.onChange}

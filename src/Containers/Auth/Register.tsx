@@ -13,6 +13,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {authRegisterErrorSelector, authRegisterLoaderSelector} from "../../Redux/auth/selectors";
 import {authRegister} from "../../Redux/auth/actions";
 import {AuthRegisterPayload} from "../../Redux/auth/types";
+import {PasswordRequirements} from "./Components/PasswordRequirements";
 
 export const Register = () => {
     const dispatch = useDispatch();
@@ -45,8 +46,10 @@ export const Register = () => {
 
                                 <FormikInput name="eMail" label="E-mail"/>
                                 <FormikInput name="username" label="Username"/>
+
                                 <FormikInput name="password" label="Password"/>
                                 <FormikInput name="passwordRepeat" label="Repeat the password"/>
+                                <PasswordRequirements formikValues={values}/>
 
                                 {authRegisterError}
 

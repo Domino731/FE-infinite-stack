@@ -4,7 +4,7 @@ import React from "react";
 const Wrapper = styled.div`
   font-weight: 700;
   font-size: 57px;
-  color: ${props => props.theme.colors.white['50']};
+  color: ${props => props.theme.colors.white};
   padding-top: 15px;
   padding-left: 30px;
 `;
