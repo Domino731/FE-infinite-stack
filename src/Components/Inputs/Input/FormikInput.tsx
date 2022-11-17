@@ -1,15 +1,24 @@
 import {useField} from "formik";
 import Input from "./index";
+import {HTMLInputTypeAttribute} from "react";
 
 interface FormikInputProps {
     name: string;
     label?: string;
+    type?: HTMLInputTypeAttribute;
 }
 
-export const FormikInput = ({name, label}: FormikInputProps) => {
+/**
+ * Input that is prepared for formik
+ * @param name - name for formik field & meta
+ * @param label - input label
+ * @param type - input type
+ * */
+export const FormikInput = ({name, label, type}: FormikInputProps) => {
     const [field, meta] = useField(name);
-    console.log(meta);
+
     return <Input
+        type={type}
         onBlur={field.onBlur}
         onChange={field.onChange}
         name={name}

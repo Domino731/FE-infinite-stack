@@ -47,8 +47,8 @@ export const Register = () => {
                                 <FormikInput name="eMail" label="E-mail"/>
                                 <FormikInput name="username" label="Username"/>
 
-                                <FormikInput name="password" label="Password"/>
-                                <FormikInput name="passwordRepeat" label="Repeat the password"/>
+                                <FormikInput name="password" label="Password" type="password"/>
+                                <FormikInput name="passwordRepeat" label="Repeat the password" type="password"/>
                                 <PasswordRequirements formikValues={values}/>
 
                                 {authRegisterError}

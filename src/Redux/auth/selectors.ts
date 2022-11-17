@@ -13,3 +13,5 @@ export const authPasswordRecoveryLoaderSelector = createSelector(authState, (sta
 export const authLoginErrorSelector = createSelector(authState, (state: AuthState) => state.loginError);
 export const authRegisterErrorSelector = createSelector(authState, (state: AuthState) => state.registerError);
 export const authPasswordRecoveryErrorSelector = createSelector(authState, (state: AuthState) => state.passwordRecoveryError);
+
+export const authIsUserLoggedSelector = createSelector(authState, (state) => Boolean(state.id));

@@ -19,6 +19,11 @@ export const InputComponent = styled.input<InputComponentProps>`
   border-radius: 4px;
   height: 40px;
 
+  &[type=password] {
+    font-size: 22px;
+    color: ${props => props.theme.colors['grey-700']}
+  }
+
   &:focus {
     border: 2px solid #2563eb;
   }

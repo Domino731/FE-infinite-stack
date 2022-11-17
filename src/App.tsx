@@ -11,6 +11,7 @@ import {APP_ROUTES} from "./Routes/const";
 import {Login, Register} from "./Containers/Auth";
 import {Provider} from 'react-redux'
 import {store} from "./Redux";
+import {ProtectedRoute} from "./Components/Routes";
 
 function App() {
     return (
@@ -18,8 +19,9 @@ function App() {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Routes>
-                        <Route path={APP_ROUTES.HOME} element={<Login/>}/>
+                        <Route path={APP_ROUTES.LOGIN} element={<Login/>}/>
                         <Route path={APP_ROUTES.REGISTER} element={<Register/>}/>
+                        <Route path={APP_ROUTES.START} element={<ProtectedRoute element={<div>Start</div>}/>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>

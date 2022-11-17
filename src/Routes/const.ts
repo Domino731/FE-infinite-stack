@@ -3,5 +3,7 @@ export const REGISTER_PATH: string = '/register';
 
 export enum APP_ROUTES {
     HOME = '/',
-    REGISTER = '/register'
+    REGISTER = '/register',
+    LOGIN = '/login',
+    START = '/start'
 }
