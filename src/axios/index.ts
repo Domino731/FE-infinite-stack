@@ -8,7 +8,7 @@ const API_CONSTANTS = {
 /** axios instance */
 export const api = axios.create({
     baseURL: API_CONSTANTS.LOCALHOST,
-    withCredentials: false,
+    withCredentials: true,
     headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': true,

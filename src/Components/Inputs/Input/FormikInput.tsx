@@ -8,7 +8,7 @@ interface FormikInputProps {
 
 export const FormikInput = ({name, label}: FormikInputProps) => {
     const [field, meta] = useField(name);
-    
+    console.log(meta);
     return <Input
         onBlur={field.onBlur}
         onChange={field.onChange}

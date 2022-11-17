@@ -22,10 +22,10 @@ export const Register = () => {
     const authRegisterError: string | null = useSelector(authRegisterErrorSelector);
 
     const handleSubmit = useCallback((formikValues: FormikValues): void => {
-        if (!authRegisterLoader) {
-            // @ts-ignore
-            dispatch(authRegister(formikValues as AuthRegisterPayload));
-        }
+        // if (!authRegisterLoader) {
+        // @ts-ignore
+        dispatch(authRegister(formikValues as AuthRegisterPayload));
+        // }
     }, [authRegisterLoader, dispatch]);
 
     return <Flex h="100%">
@@ -34,7 +34,7 @@ export const Register = () => {
                 <Logo/>
             </Box>
             <Box h="100%" display="flex" justifyContent="center" alignItems="center">
-                <Box h="auto" m="0 auto" p="32px 16px" w="500px" bgColor="white" bR="6px">
+                <Box h="auto" m="0 auto" p="32px 16px" w="500px" bgColor="white" bR="16px">
                     <Formik
                         initialValues={RegisterInitialValues}
                         onSubmit={handleSubmit}
