@@ -5,5 +5,7 @@ export enum APP_ROUTES {
     HOME = '/',
     REGISTER = '/register',
     LOGIN = '/login',
-    START = '/start'
+    START = '/start',
+    DASHBOARD = '/dashboard',
+    INTRODUCTION = '/introduction'
 }

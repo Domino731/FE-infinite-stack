@@ -1,4 +1,4 @@
-import {createAction, createAsyncThunk} from "@reduxjs/toolkit";
+import {createAsyncThunk} from "@reduxjs/toolkit";
 import {AUTH_CONSTANTS} from "./const";
 import {AuthLoginPayload, AuthRegisterPayload} from "./types";
 import {api} from "../../axios";
@@ -30,6 +30,3 @@ export const authLogin = createAsyncThunk(
         }
     }
 );
-
-export const authRegisterSuccess = createAction(AUTH_CONSTANTS.REGISTER_SUCCESS);
-export const authRegisterFailed = createAction<string>(AUTH_CONSTANTS.REGISTER_FAILED);

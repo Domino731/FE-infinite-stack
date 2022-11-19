@@ -21,7 +21,10 @@ function App() {
                     <Routes>
                         <Route path={APP_ROUTES.LOGIN} element={<Login/>}/>
                         <Route path={APP_ROUTES.REGISTER} element={<Register/>}/>
-                        <Route path={APP_ROUTES.START} element={<ProtectedRoute element={<div>Start</div>}/>}/>
+                        <Route path={APP_ROUTES.INTRODUCTION}
+                               element={<ProtectedRoute element={<div>INTRODUCTION</div>}/>}/>
+                        <Route path={APP_ROUTES.DASHBOARD}
+                               element={<ProtectedRoute element={<div>DASHBOARD</div>}/>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>

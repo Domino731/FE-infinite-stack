@@ -10,22 +10,30 @@ import {FormikInput} from "../../Components/Inputs/Input/FormikInput";
 import {useCallback} from "react";
 import {RegisterInitialValues, RegisterValidationSchema} from "./formik";
 import {useDispatch, useSelector} from "react-redux";
-import {authRegisterErrorSelector, authRegisterLoaderSelector} from "../../Redux/auth/selectors";
+import {
+    authIsUserLoggedSelector,
+    authRegisterErrorSelector,
+    authRegisterLoaderSelector
+} from "../../Redux/auth/selectors";
 import {authRegister} from "../../Redux/auth/actions";
 import {AuthRegisterPayload} from "../../Redux/auth/types";
 import {PasswordRequirements} from "./Components/PasswordRequirements";
+import {Navigate} from "react-router-dom";
+import {APP_ROUTES} from "../../Routes/const";
 
 export const Register = () => {
     const dispatch = useDispatch();
 
+    // selectors
+    const isUserLogged: boolean = useSelector(authIsUserLoggedSelector);
     const authRegisterLoader: boolean = useSelector(authRegisterLoaderSelector);
     const authRegisterError: string | null = useSelector(authRegisterErrorSelector);
 
     const handleSubmit = useCallback((formikValues: FormikValues): void => {
-        // if (!authRegisterLoader) {
-        // @ts-ignore
-        dispatch(authRegister(formikValues as AuthRegisterPayload));
-        // }
+        if (!authRegisterLoader) {
+            // @ts-ignore
+            dispatch(authRegister(formikValues as AuthRegisterPayload));
+        }
     }, [authRegisterLoader, dispatch]);
 
     return <Flex h="100%">
@@ -71,5 +79,7 @@ export const Register = () => {
                 </Box>
             </Box>
         </FormColumn>
+        {/*redirect to dashboard if user is logged*/}
+        {isUserLogged && <Navigate to={APP_ROUTES.INTRODUCTION}/>}
     </Flex>
 }

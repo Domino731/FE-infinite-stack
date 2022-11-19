@@ -11,18 +11,25 @@ import {useCallback} from "react";
 import {LoginInitialValues} from "./formik";
 import {useDispatch, useSelector} from "react-redux";
 import {
+    authIsUserLoggedSelector,
     authLoginErrorSelector,
     authLoginLoaderSelector,
 } from "../../Redux/auth/selectors";
 import {authLogin} from "../../Redux/auth/actions";
 import {AuthLoginPayload} from "../../Redux/auth/types";
+import {Navigate} from 'react-router-dom';
+import {APP_ROUTES} from "../../Routes/const";
 
 export const Login = () => {
+    // other hooks
     const dispatch = useDispatch();
 
+    // selectors
+    const isUserLogged: boolean = useSelector(authIsUserLoggedSelector);
     const authLoginLoader: boolean = useSelector(authLoginLoaderSelector);
     const authLoginError: string | null = useSelector(authLoginErrorSelector);
 
+    // callbacks
     const handleLogin = useCallback((formikValues: FormikValues): void => {
         console.log('handleSubmit');
         if (!authLoginLoader) {
@@ -69,5 +76,8 @@ export const Login = () => {
                 </Box>
             </Box>
         </FormColumn>
+
+        {/*redirect to dashboard if user is logged*/}
+        {isUserLogged && <Navigate to={APP_ROUTES.DASHBOARD}/>}
     </Flex>
 }

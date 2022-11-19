@@ -29,6 +29,7 @@ export const AUTH_REDUCER_NAME: string = 'auth';
 
 export const authReducer = createReducer(initialState, (builder) => {
     builder
+        // register
         .addCase(authRegister.pending, (state) => {
             state.registerLoader = true;
             state.registerError = initialState.registerError;
@@ -43,6 +44,8 @@ export const authReducer = createReducer(initialState, (builder) => {
         .addCase(authRegister.rejected, (state, action) => {
             state.registerError = action.payload as string;
         })
+
+        // login
         .addCase(authLogin.pending, (state) => {
             state.loginLoader = true;
             state.loginError = initialState.loginError;
