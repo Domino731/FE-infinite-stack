@@ -1,5 +1,5 @@
 import {createReducer} from '@reduxjs/toolkit'
-import {authRegister} from "./actions";
+import {authLogin, authRegister} from "./actions";
 
 export interface AuthState {
     loginLoader: boolean;
@@ -42,5 +42,21 @@ export const authReducer = createReducer(initialState, (builder) => {
         })
         .addCase(authRegister.rejected, (state, action) => {
             state.registerError = action.payload as string;
+        })
+        .addCase(authLogin.pending, (state) => {
+            state.loginLoader = true;
+            state.loginError = initialState.loginError;
+        })
+        .addCase(authLogin.fulfilled, (state, action) => {
+            const {payload: {data}} = action;
+            state.username = data.username;
+            state.id = data._id;
+            state.loginError = initialState.loginError;
+            state.loginLoader = initialState.loginLoader;
+        })
+        .addCase(authLogin.rejected, (state, action) => {
+            console.log(action.payload);
+            state.loginError = action.payload as string;
+            state.loginLoader = initialState.loginLoader;
         })
 });

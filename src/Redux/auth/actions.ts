@@ -1,20 +1,35 @@
 import {createAction, createAsyncThunk} from "@reduxjs/toolkit";
 import {AUTH_CONSTANTS} from "./const";
-import {AuthRegisterPayload} from "./types";
+import {AuthLoginPayload, AuthRegisterPayload} from "./types";
 import {api} from "../../axios";
 
-/** register new user */
+//// REDUX thunks
+
+/** REDUX Thunk - register new user using api */
 export const authRegister = createAsyncThunk(
     AUTH_CONSTANTS.REGISTER,
-    async (payload: AuthRegisterPayload, {dispatch}) => {
+    async (payload: AuthRegisterPayload, {rejectWithValue}) => {
         try {
             const response = await api.post('/users', payload);
             return response;
         } catch (response: any) {
-            return response?.data?.message;
+            return rejectWithValue(response?.response?.data?.message);
         }
     }
-)
+);
+
+/** REDUX Thunk - log the user using api */
+export const authLogin = createAsyncThunk(
+    AUTH_CONSTANTS.LOGIN,
+    async (payload: AuthLoginPayload, {rejectWithValue}) => {
+        try {
+            const response = await api.post('/users/login', payload);
+            return response;
+        } catch (response: any) {
+            return rejectWithValue(response?.response?.data?.message);
+        }
+    }
+);
 
 export const authRegisterSuccess = createAction(AUTH_CONSTANTS.REGISTER_SUCCESS);
 export const authRegisterFailed = createAction<string>(AUTH_CONSTANTS.REGISTER_FAILED);

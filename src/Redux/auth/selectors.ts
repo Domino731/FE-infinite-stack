@@ -10,7 +10,10 @@ export const authRegisterLoaderSelector = createSelector(authState, (state: Auth
 export const authPasswordRecoveryLoaderSelector = createSelector(authState, (state: AuthState) => state.passwordRecoveryError);
 
 // errors
-export const authLoginErrorSelector = createSelector(authState, (state: AuthState) => state.loginError);
+export const authLoginErrorSelector = createSelector(authState, (state: AuthState) => {
+    console.log(state);
+    return state.loginError
+});
 export const authRegisterErrorSelector = createSelector(authState, (state: AuthState) => state.registerError);
 export const authPasswordRecoveryErrorSelector = createSelector(authState, (state: AuthState) => state.passwordRecoveryError);
 
