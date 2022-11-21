@@ -19,6 +19,7 @@ import {authLogin} from "../../Redux/auth/actions";
 import {AuthLoginPayload} from "../../Redux/auth/types";
 import {Navigate} from 'react-router-dom';
 import {APP_ROUTES} from "../../Routes/const";
+import {Introduction} from "./Components/Introduction";
 
 export const Login = () => {
     // other hooks
@@ -76,7 +77,11 @@ export const Login = () => {
                 </Box>
             </Box>
         </FormColumn>
-
+        <Introduction>
+            <h1>YOUR NEW<br/>
+                ULTIMATE AGILE APP
+            </h1>
+        </Introduction>
         {/*redirect to dashboard if user is logged*/}
         {isUserLogged && <Navigate to={APP_ROUTES.DASHBOARD}/>}
     </Flex>

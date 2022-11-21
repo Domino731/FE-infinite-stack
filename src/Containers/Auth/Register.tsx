@@ -85,6 +85,7 @@ export const Register = () => {
                 ULTIMATE AGILE APP
             </h1>
         </Introduction>
+
         {/*redirect to dashboard if user is logged*/}
         {isUserLogged && <Navigate to={APP_ROUTES.INTRODUCTION}/>}
     </Flex>

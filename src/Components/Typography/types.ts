@@ -30,7 +30,6 @@ export enum TYPOGRAPHY_TYPE {
 
     BUTTON_LG = 'BUTTON_LG',
     BUTTON_MD = 'BUTTON_MD'
-
 }
 
 export enum TYPOGRAPHY_SIZES {
