@@ -12,6 +12,7 @@ import {Login, Register} from "./Containers/Auth";
 import {Provider} from 'react-redux'
 import {store} from "./Redux";
 import {ProtectedRoute} from "./Components/Routes";
+import {Typograhpy2} from "./Components/Typography";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                                element={<ProtectedRoute element={<div>INTRODUCTION</div>}/>}/>
                         <Route path={APP_ROUTES.DASHBOARD}
                                element={<ProtectedRoute element={<div>DASHBOARD</div>}/>}/>
+                        {/*<Route path="/test" element={>}/>*/}
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>
