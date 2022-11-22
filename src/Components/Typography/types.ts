@@ -1,6 +1,6 @@
 export interface TypographyProps {
     type: TypographyTypeUnion;
-    size: TypographySizesUnion;
+    align?: string;
 }
 
 export enum TYPOGRAPHY_TYPE {

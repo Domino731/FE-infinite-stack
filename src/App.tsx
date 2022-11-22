@@ -12,7 +12,7 @@ import {Login, Register} from "./Containers/Auth";
 import {Provider} from 'react-redux'
 import {store} from "./Redux";
 import {ProtectedRoute} from "./Components/Routes";
-import {Typograhpy2} from "./Components/Typography";
+import Introduction from "./Containers/Introduction";
 
 function App() {
     return (
@@ -23,10 +23,9 @@ function App() {
                         <Route path={APP_ROUTES.LOGIN} element={<Login/>}/>
                         <Route path={APP_ROUTES.REGISTER} element={<Register/>}/>
                         <Route path={APP_ROUTES.INTRODUCTION}
-                               element={<ProtectedRoute element={<div>INTRODUCTION</div>}/>}/>
+                               element={<Introduction/>}/>
                         <Route path={APP_ROUTES.DASHBOARD}
                                element={<ProtectedRoute element={<div>DASHBOARD</div>}/>}/>
-                        {/*<Route path="/test" element={>}/>*/}
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>

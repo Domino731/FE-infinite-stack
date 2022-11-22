@@ -9,15 +9,6 @@ export const Typography = styled.p`
 `
 
 export const Typograhpy2 = styled.p<TypographyProps>`
-  ${({type}) => {
-    switch (type) {
-      case TYPOGRAPHY_TYPE.HEADLINE:
-        return css`
-          font-size: 30px;
-        `
-      default:
-        return css``
-    }
-  }
-  }
+  font-size: ${(props) => props.theme.typography.fontSize[props.type]};
+  text-align: ${props => props.align};
 `

@@ -5,6 +5,7 @@ interface BoxProps {
     h?: string;
     m?: string;
     p?: string;
+
     display?: string;
     justifyContent?: string;
     alignItems?: string;
@@ -12,8 +13,10 @@ interface BoxProps {
     bgColor?: string;
     bR?: string;
 
-
     position?: string;
+
+    boxShadow?: string;
+
 }
 
 const Box = styled.div<BoxProps>`
@@ -27,6 +30,7 @@ const Box = styled.div<BoxProps>`
   display: ${(props: any) => props.display};
   justify-content: ${(props: any) => props.justifyContent};
   align-items: ${(props: any) => props.alignItems};
+  box-shadow: ${(props: any) => props.boxShadow && props.theme.boxShadow[props.boxShadow]};
 `
 
 export default Box;
