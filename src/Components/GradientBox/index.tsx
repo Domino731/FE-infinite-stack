@@ -1,4 +1,4 @@
-import {GradientBoxContent, GradientBoxShadow, GradientBoxWrapper} from "./styles";
+import {GradientBoxContent} from "./styles";
 import {ReactNode} from "react";
 import Box from "../Box";
 
@@ -8,8 +8,6 @@ const GradientBox = ({children}: { children: ReactNode }) => {
             {children}
         </Box>
     </GradientBoxContent>
-
-
 }
 
 export default GradientBox;

@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-export const GradientBoxWrapper = styled.div`
-  position: relative;
-  background-color: ${props => props.theme.colors['white']};
-  //  box-shadow: 10px 10px 40px #c9c9c9, -10px -10px 40px #c9c9c9;
-  border-radius: ${props => props.theme.borderRadius[10]};
-`
 export const GradientBoxContent = styled.div`
   position: relative;
   z-index: 2;
@@ -31,6 +25,3 @@ export const GradientBoxContent = styled.div`
     transform: rotate(-13deg);
   }
 `;
-
-export const GradientBoxShadow = styled.div`
-`
