@@ -11,4 +11,6 @@ export const Typography = styled.p`
 export const Typograhpy2 = styled.p<TypographyProps>`
   font-size: ${(props) => props.theme.typography.fontSize[props.type]};
   text-align: ${props => props.align};
+  padding-top: ${(props: any) => props.pt && props.theme.spacing[props.pt]};
+  padding-bottom: ${(props: any) => props.pt && props.theme.spacing[props.pb]};
 `
