@@ -7,5 +7,7 @@ export enum APP_ROUTES {
     LOGIN = '/login',
     START = '/start',
     DASHBOARD = '/dashboard',
-    INTRODUCTION = '/introduction'
+    INTRODUCTION = '/introduction',
+    TEMPLATE_PROJECT = '/template-project',
+    DASHBOARD_CREATE_NEW_PROJECT = '/dashboard/create-new-project'
 }

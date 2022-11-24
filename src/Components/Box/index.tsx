@@ -20,6 +20,8 @@ interface BoxProps {
 }
 
 const Box = styled.div<BoxProps>`
+    // min-width: ${(props: any) => props.minWidth};
+    // max-width: ${(props: any) => props.minWidth};
   width: ${(props: any) => props.w};
   height: ${(props: any) => props.h};
   margin: ${(props: any) => props.m};

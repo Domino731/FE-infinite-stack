@@ -11,6 +11,7 @@ export const GradientBoxContent = styled.div`
   z-index: 2;
   background: ${props => props.theme.colors.white};
   border-radius: ${props => props.theme.borderRadius[10]};
+  box-shadow: 0 0 16px #877d7d;
 
   &::after {
     top: 0;
@@ -26,10 +27,8 @@ export const GradientBoxContent = styled.div`
     z-index: -1;
   }
 
-  &:hover {
-    & ~ div {
-      transform: rotate(-13deg);
-    }
+  &:hover::after {
+    transform: rotate(-13deg);
   }
 `;
 
