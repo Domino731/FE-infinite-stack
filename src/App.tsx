@@ -13,6 +13,7 @@ import {Provider} from 'react-redux'
 import {store} from "./Redux";
 import {ProtectedRoute} from "./Components/Routes";
 import Introduction from "./Containers/Introduction";
+import Dashboard from "./Containers/Dashboard";
 
 function App() {
     return (
@@ -25,7 +26,7 @@ function App() {
                         <Route path={APP_ROUTES.INTRODUCTION}
                                element={<Introduction/>}/>
                         <Route path={APP_ROUTES.DASHBOARD}
-                               element={<ProtectedRoute element={<div>DASHBOARD</div>}/>}/>
+                               element={<ProtectedRoute element={<Dashboard/>}/>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>
