@@ -3,6 +3,7 @@ export interface TypographyProps {
     align?: string;
     pt?: string;
     pb?: string;
+    color?: string;
 }
 
 export enum TYPOGRAPHY_TYPE {
