@@ -26,7 +26,7 @@ function App() {
                         <Route path={APP_ROUTES.INTRODUCTION}
                                element={<Introduction/>}/>
                         <Route path={APP_ROUTES.DASHBOARD}
-                               element={<ProtectedRoute element={<Dashboard/>}/>}/>
+                               element={<Dashboard>DASHBOARD</Dashboard>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>

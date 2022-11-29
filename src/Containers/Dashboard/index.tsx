@@ -7,7 +7,7 @@ import {DashboardProps} from "./types";
 const Dashboard = ({children}: DashboardProps) => {
     // grid layout
     return <DashboardLayout>
-        <TopPanel/>
+        {/*<TopPanel/>*/}
         <LeftPanel/>
         <DashboardContent>
             {children}
