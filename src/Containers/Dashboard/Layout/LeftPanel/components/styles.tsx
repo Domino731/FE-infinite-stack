@@ -5,3 +5,13 @@ export const LeftPanelContainer = styled.section`
   height: 100%;
   background: red;
 `
+
+export const LeftPanelList = styled.ul`
+  margin-bottom: 64px;
+`
+
+export const LeftPanelListItem = styled.li`
+  display: flex;
+  align-items: center;
+
+`
