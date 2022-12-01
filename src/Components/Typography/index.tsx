@@ -13,5 +13,7 @@ export const Typograhpy2 = styled.p<TypographyProps>`
   text-align: ${props => props.align};
   padding-top: ${(props: any) => props.pt && props.theme.spacing[props.pt]};
   padding-bottom: ${(props: any) => props.pt && props.theme.spacing[props.pb]};
+  padding-right: ${(props: any) => props.pt && props.theme.spacing[props.pr]};
+  padding-left: ${(props: any) => props.pt && props.theme.spacing[props.pl]};
   color: ${(props: any) => props.theme.colors[props.color]}
 `

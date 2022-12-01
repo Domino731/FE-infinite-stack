@@ -25,7 +25,7 @@ function App() {
                         <Route path={APP_ROUTES.REGISTER} element={<Register/>}/>
                         <Route path={APP_ROUTES.INTRODUCTION}
                                element={<Introduction/>}/>
-                        <Route path={APP_ROUTES.DASHBOARD}
+                        <Route path={`${APP_ROUTES.DASHBOARD}/*`}
                                element={<Dashboard>DASHBOARD</Dashboard>}/>
                     </Routes>
                 </BrowserRouter>

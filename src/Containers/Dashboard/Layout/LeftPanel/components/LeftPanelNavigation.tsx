@@ -10,18 +10,22 @@ import {FaRegFolderOpen} from 'react-icons/fa'
 import {FiSettings} from 'react-icons/fi'
 import {LeftPanelList, LeftPanelListItem} from "./styles";
 import {Typograhpy2} from "../../../../../Components/Typography";
+import {useLocation} from "react-router";
 
 const ListItem = ({title, icon}: ListItemProps) => {
     return <LeftPanelListItem>
         <>
             {icon}
-            <Typograhpy2 type="HEADLINE_H6" color="grey-700">{title}</Typograhpy2>
+            <Typograhpy2 type="HEADLINE_H6">{title}</Typograhpy2>
         </>
     </LeftPanelListItem>
 }
 
 
 export const LeftPanelNavigation = () => {
+    const location = useLocation();
+    console.log(location);
+
     return <>
         <LeftPanelList>
             <ListItem title={"Roadmap"} icon={<FaThList/>}/>
