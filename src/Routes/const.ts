@@ -23,3 +23,5 @@ export enum PROJECT_ROUTES {
     DOCUMENTS = '/documents',
     SETTINGS = '/settings'
 }
+
+export type ProjectRoutesTypeUnion = keyof typeof PROJECT_ROUTES;

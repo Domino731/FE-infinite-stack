@@ -10,10 +10,13 @@ import {FaRegFolderOpen} from 'react-icons/fa'
 import {FiSettings} from 'react-icons/fi'
 import {LeftPanelList, LeftPanelListItem} from "./styles";
 import {Typograhpy2} from "../../../../../Components/Typography";
-import {useLocation} from "react-router";
+import {APP_ROUTES, PROJECT_ROUTES} from "../../../../../Routes/const";
+import {useMatch} from "react-router";
 
-const ListItem = ({title, icon}: ListItemProps) => {
-    return <LeftPanelListItem>
+const ListItem = ({title, icon, route}: ListItemProps) => {
+    const match = useMatch(`${APP_ROUTES.DASHBOARD}${route}`);
+
+    return <LeftPanelListItem isActive={Boolean(match)}>
         <>
             {icon}
             <Typograhpy2 type="HEADLINE_H6">{title}</Typograhpy2>
@@ -23,22 +26,19 @@ const ListItem = ({title, icon}: ListItemProps) => {
 
 
 export const LeftPanelNavigation = () => {
-    const location = useLocation();
-    console.log(location);
-
     return <>
         <LeftPanelList>
-            <ListItem title={"Roadmap"} icon={<FaThList/>}/>
-            <ListItem title={"Backlog"} icon={<BiMapPin/>}/>
-            <ListItem title={"Sprints"} icon={<FaClipboardList/>}/>
-            <ListItem title={"Reports"} icon={<AiOutlineAreaChart/>}/>
+            <ListItem route={PROJECT_ROUTES.ROADMAP} title={"Roadmap"} icon={<FaThList/>}/>
+            <ListItem route={PROJECT_ROUTES.BACKLOG} title={"Backlog"} icon={<BiMapPin/>}/>
+            <ListItem route={PROJECT_ROUTES.SPRINTS} title={"Sprints"} icon={<FaClipboardList/>}/>
+            <ListItem route={PROJECT_ROUTES.REPORTS} title={"Reports"} icon={<AiOutlineAreaChart/>}/>
         </LeftPanelList>
         <LeftPanelList>
-            <ListItem title={"Issues"} icon={<FaBug/>}/>
-            <ListItem title={"Components"} icon={<AiOutlinePartition/>}/>
-            <ListItem title={"Releases"} icon={<FaShip/>}/>
-            <ListItem title={"Documents"} icon={<FaRegFolderOpen/>}/>
-            <ListItem title={"Settings"} icon={<FiSettings/>}/>
+            <ListItem route={PROJECT_ROUTES.ISSUES} title={"Issues"} icon={<FaBug/>}/>
+            <ListItem route={PROJECT_ROUTES.COMPONENTS} title={"Components"} icon={<AiOutlinePartition/>}/>
+            <ListItem route={PROJECT_ROUTES.RELEASES} title={"Releases"} icon={<FaShip/>}/>
+            <ListItem route={PROJECT_ROUTES.DOCUMENTS} title={"Documents"} icon={<FaRegFolderOpen/>}/>
+            <ListItem route={PROJECT_ROUTES.SETTINGS} title={"Settings"} icon={<FiSettings/>}/>
         </LeftPanelList>
     </>
 }

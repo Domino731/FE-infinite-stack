@@ -14,6 +14,7 @@ export const colors = {
     "white-100": '#e3e3e3',
     "transparent": "transparent",
     "black": "#000000",
+    primary: '#3a86ff',
     secondary: '#ff006e',
 
     "red": "#f44336",
