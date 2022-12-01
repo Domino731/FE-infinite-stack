@@ -12,15 +12,16 @@ import {LeftPanelList, LeftPanelListItem} from "./styles";
 import {Typograhpy2} from "../../../../../Components/Typography";
 import {APP_ROUTES, PROJECT_ROUTES} from "../../../../../Routes/const";
 import {useMatch} from "react-router";
+import {Link} from "react-router-dom";
 
 const ListItem = ({title, icon, route}: ListItemProps) => {
     const match = useMatch(`${APP_ROUTES.DASHBOARD}${route}`);
 
     return <LeftPanelListItem isActive={Boolean(match)}>
-        <>
+        <Link to={`${APP_ROUTES.DASHBOARD + route}`}>
             {icon}
             <Typograhpy2 type="HEADLINE_H6">{title}</Typograhpy2>
-        </>
+        </Link>
     </LeftPanelListItem>
 }
 

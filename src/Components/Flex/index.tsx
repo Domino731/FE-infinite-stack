@@ -8,6 +8,10 @@ interface FlexProps {
 
     justifyContent?: string;
     alignItems?: string;
+    dir?: string;
+
+    border?: string;
+    bgColor?: string;
 }
 
 const Flex = styled.div<FlexProps>`
@@ -16,8 +20,11 @@ const Flex = styled.div<FlexProps>`
   height: ${(props: any) => props.h};
   justify-content: ${(props: any) => props.justifyContent};
   align-items: ${(props: any) => props.alignItems};
+  flex-direction: ${(props: any) => props.dir};
   margin: ${(props: any) => props.m};
-  padding: ${(props: any) => props.p};
+  padding: ${(props: any) => props.theme.spacing[props.p]};
+  border: ${(props: any) => props.border};
+  background: ${(props: any) => props.theme.colors[props.bgColor]};
 `
 
 export default Flex;
