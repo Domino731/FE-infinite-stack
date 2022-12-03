@@ -33,7 +33,7 @@ const Introduction = () => {
                 </GradientBox>
                 <GradientBox>
                     <IntroductionLinkWrapper>
-                        <Link to={APP_ROUTES.DASHBOARD_CREATE_NEW_PROJECT}>
+                        <Link to={APP_ROUTES.CREATE_NEW_PROJECT}>
                             <IntroductionIconWrapper>
                                 <FaWpforms/>
                             </IntroductionIconWrapper>

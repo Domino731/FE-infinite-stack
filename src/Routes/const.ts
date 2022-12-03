@@ -9,8 +9,10 @@ export enum APP_ROUTES {
     DASHBOARD = '/dashboard',
     INTRODUCTION = '/introduction',
     TEMPLATE_PROJECT = '/template-project',
+    CREATE_NEW_PROJECT = '/create-new-project',
     DASHBOARD_CREATE_NEW_PROJECT = '/dashboard/create-new-project'
 }
+
 
 export enum PROJECT_ROUTES {
     ROADMAP = '/roadmap',

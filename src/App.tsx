@@ -14,6 +14,7 @@ import {store} from "./Redux";
 import {ProtectedRoute} from "./Components/Routes";
 import Introduction from "./Containers/Introduction";
 import Dashboard from "./Containers/Dashboard";
+import CreateNewProject from "./Containers/CreateNewProject";
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                                element={<Introduction/>}/>
                         <Route path={`${APP_ROUTES.DASHBOARD}/*`}
                                element={<Dashboard>DASHBOARD</Dashboard>}/>
+                        <Route path={APP_ROUTES.CREATE_NEW_PROJECT} element={<CreateNewProject/>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>
