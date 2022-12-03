@@ -12,6 +12,10 @@ interface FlexProps {
 
     border?: string;
     bgColor?: string;
+
+    position?: string;
+
+    transform?: string;
 }
 
 const Flex = styled.div<FlexProps>`
@@ -23,8 +27,12 @@ const Flex = styled.div<FlexProps>`
   flex-direction: ${(props: any) => props.dir};
   margin: ${(props: any) => props.m};
   padding: ${(props: any) => props.theme.spacing[props.p]};
+  padding-top: ${(props: any) => props.theme.spacing[props.pt]};
+  padding-bottom: ${(props: any) => props.theme.spacing[props.pb]};
   border: ${(props: any) => props.border};
   background: ${(props: any) => props.theme.colors[props.bgColor]};
+  position: ${(props: any) => props.position};
+  transform: ${(props: any) => props.transform};
 `
 
 export default Flex;
