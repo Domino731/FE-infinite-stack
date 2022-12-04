@@ -214,6 +214,7 @@ export const colors = {
     "brown-800": "#4e342e",
     "brown-900": "#3e2723",
 
+    "grey-input": "#9ca3af",
     "grey": "#9e9e9e",
     "grey-50": "#fafafa",
     "grey-100": "#f5f5f5",

@@ -26,7 +26,7 @@ export const StatusDot = styled.span`
   display: block;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  background: white;
-  border: 3px solid ${(props: any) => props.theme.colors.black}
+  border-radius: 6px;
+  background: ${(props: any) => props.theme.colors.white};
+  border: 2px solid ${(props: any) => props.theme.colors.black}
 `
