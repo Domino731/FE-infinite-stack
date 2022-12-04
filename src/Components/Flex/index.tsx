@@ -16,6 +16,7 @@ interface FlexProps {
     position?: string;
 
     transform?: string;
+    zIndex?: string | number;
 }
 
 const Flex = styled.div<FlexProps>`
@@ -33,6 +34,7 @@ const Flex = styled.div<FlexProps>`
   background: ${(props: any) => props.theme.colors[props.bgColor]};
   position: ${(props: any) => props.position};
   transform: ${(props: any) => props.transform};
+  z-index: ${(props: any) => props.zIndex};
 `
 
 export default Flex;
