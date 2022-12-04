@@ -1,5 +1,6 @@
 import {FormikInput} from "../../../Components/Inputs/Input/FormikInput";
 import {FormikSelect} from "../../../Components/Inputs/Select/FormikSelect";
+import {Textarea} from "../../../Components/Inputs/Textarea";
 
 export const CreateNewProjectDetails = () => {
     return <>
@@ -9,6 +10,7 @@ export const CreateNewProjectDetails = () => {
         <FormikSelect label="type" placeholder="choose from list" name="type"
                       options={[{value: 'test', label: 'test'}, {value: 'test', label: 'test'}]}/>
         <FormikInput name="category" label="Category"/>
-        <FormikInput name="category" label="Description"/>
+        <Textarea label="Description" rows={7} resize={false}/>
+        {/*<FormikInput name="category" label="Description"/>*/}
     </>
 }
