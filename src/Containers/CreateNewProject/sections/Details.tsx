@@ -1,16 +1,39 @@
 import {FormikInput} from "../../../Components/Inputs/Input/FormikInput";
 import {FormikSelect} from "../../../Components/Inputs/Select/FormikSelect";
-import {Textarea} from "../../../Components/Inputs/Textarea";
+import {PROJECT_TYPES} from "../../../configs/projectTypes";
+import {useMemo} from "react";
+import {FormikTextarea} from "../../../Components/Inputs/Textarea/FormikTextarea";
+import Flex from "../../../Components/Flex";
+import Box from "../../../Components/Box";
+import {Label} from "../../../Components/Inputs/styles";
 
 export const CreateNewProjectDetails = () => {
+
+    const projectTypes = useMemo(() => PROJECT_TYPES.map(({label, type}) => ({label, value: type})), []);
+    const projectTypeCategories = useMemo(() => PROJECT_TYPES[0].categories.map(({label, category}) => ({
+        label,
+        value: category
+    })), [])
+
+
     return <>
-        <FormikInput name="name" label="Name"/>
-        <FormikInput name="key" label="Key"/>
-        <FormikInput name="url" label="Url"/>
-        <FormikSelect label="type" placeholder="choose from list" name="type"
-                      options={[{value: 'test', label: 'test'}, {value: 'test', label: 'test'}]}/>
-        <FormikInput name="category" label="Category"/>
-        <Textarea label="Description" rows={7} resize={false}/>
-        {/*<FormikInput name="category" label="Description"/>*/}
+        <Flex>
+            <Box flexGrow={1}>
+                <FormikInput name="name" label="Name"/>
+                <FormikInput name="key" label="Key"/>
+                <FormikInput name="url" label="Url"/>
+            </Box>
+            <Box pl="40">
+                <Label>Project icon</Label>
+                <Box w="160px" h="160px" bgColor="primary">
+
+                </Box>
+            </Box>
+        </Flex>
+        <FormikSelect label="Type" placeholder="choose from list" name="type"
+                      options={projectTypes}/>
+        <FormikSelect label="Category" placeholder="choose from list" name="category"
+                      options={projectTypeCategories}/>
+        <FormikTextarea label="Description" name="description" rows={7}/>
     </>
 }

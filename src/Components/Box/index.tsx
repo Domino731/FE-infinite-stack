@@ -5,10 +5,12 @@ interface BoxProps {
     h?: string;
     m?: string;
     p?: string;
+    pl?: string;
 
     display?: string;
     justifyContent?: string;
     alignItems?: string;
+    flexGrow?: number;
 
     bgColor?: string;
     bR?: string;
@@ -38,6 +40,7 @@ const Box = styled.div<BoxProps>`
 
   margin: ${(props: any) => props.m};
   padding: ${(props: any) => props.theme.spacing[props.p] ?? props.p};
+  padding-left: ${(props: any) => props.theme.spacing[props.pl] ?? props.pl};
 
   background-color: ${(props: any) => props.theme.colors[props.bgColor]};
   background-image: ${(props: any) => props.theme.gradients[props.bgGradient]};
@@ -56,6 +59,7 @@ const Box = styled.div<BoxProps>`
   display: ${(props: any) => props.display};
   justify-content: ${(props: any) => props.justifyContent};
   align-items: ${(props: any) => props.alignItems};
+  flex-grow: ${(props: any) => props.flexGrow};
 
   box-shadow: ${(props: any) => props.boxShadow && props.theme.boxShadow[props.boxShadow]};
 
