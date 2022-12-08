@@ -9,10 +9,15 @@ import {Label} from "../../../Components/Inputs/styles";
 
 export const CreateNewProjectDetails = () => {
 
-    const projectTypes = useMemo(() => PROJECT_TYPES.map(({label, type}) => ({label, value: type})), []);
-    const projectTypeCategories = useMemo(() => PROJECT_TYPES[0].categories.map(({label, category}) => ({
+    const projectTypes = useMemo(() => PROJECT_TYPES.map(({label, type, iconUrl}) => ({
         label,
-        value: category
+        value: type,
+        iconUrl
+    })), []);
+    const projectTypeCategories = useMemo(() => PROJECT_TYPES[0].categories.map(({label, category, iconUrl}) => ({
+        label,
+        value: category,
+        iconUrl
     })), [])
 
 

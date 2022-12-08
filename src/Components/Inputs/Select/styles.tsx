@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {SelectIconWrapperProps} from "./types";
+import {SelectContainerProps, SelectIconWrapperProps} from "./types";
 
 export const SelectIconWrapper = styled.div<SelectIconWrapperProps>`
   height: 100%;
@@ -17,7 +17,15 @@ export const SelectIconWrapper = styled.div<SelectIconWrapperProps>`
   }
 `
 
+export const SelectOptionInputIcon = styled.img`
+  height: auto;
+  object-fit: cover;
+  margin-left: 6px;
+`
+
 export const SelectOptionsList = styled.ul`
+  z-index: 200;
+
   li:last-of-type button {
     border-bottom: none !important;
   }
@@ -25,7 +33,7 @@ export const SelectOptionsList = styled.ul`
 
 export const SelectInputArea = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   bottom: 0;
   width: 100%;
   height: 40px;
@@ -41,7 +49,31 @@ export const OptionButton = styled.button`
   border: none;
   border-bottom: 1px solid ${(props: any) => props.theme.colors['grey-input']};
   font-size: 18px;
-  padding: 0.3em 0.8em;
+  padding: 0 0.8em;
+  height: 40px;
   text-align: left;
-  color: ${(props: any) => props.theme.colors['grey-700']}
+  color: ${(props: any) => props.theme.colors['grey-700']};
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+
+  &:hover {
+    cursor: pointer;
+    background-color: ${(props: any) => props.theme.colors['grey-300']};
+  }
+`
+
+export const SelectButtonIcon = styled.img`
+  width: auto;
+  height: 90%;
+  object-fit: cover;
+  margin-right: 0.4em;
+`
+
+export const SelectContainer = styled.div<SelectContainerProps>`
+  position: relative;
+
+  input {
+    padding-left: 50px;
+  }
 `

@@ -28,6 +28,7 @@ interface BoxProps {
     bgPosition?: string;
     bgRepeat?: string;
 
+    zIndex?: string | number;
     // pseudo classes 
     _hover?: string;
 }
@@ -62,6 +63,8 @@ const Box = styled.div<BoxProps>`
   flex-grow: ${(props: any) => props.flexGrow};
 
   box-shadow: ${(props: any) => props.boxShadow && props.theme.boxShadow[props.boxShadow]};
+
+  z-index: ${(props: any) => props.zIndex};
 
   &:hover {
     ${(props: any) => props._hover}

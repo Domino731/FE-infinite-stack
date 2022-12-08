@@ -13,6 +13,7 @@ export interface SelectProps {
 export interface SelectOption {
     value: string;
     label: string;
+    iconUrl?: string;
 }
 
 export interface FormikSelectProps {
@@ -25,4 +26,8 @@ export interface FormikSelectProps {
 
 export interface SelectIconWrapperProps {
     isActive: boolean;
+}
+
+export interface SelectContainerProps {
+    inputLeftPadding: boolean;
 }
