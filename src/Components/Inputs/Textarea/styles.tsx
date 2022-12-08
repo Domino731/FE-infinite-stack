@@ -4,12 +4,12 @@ import {TextareaComponentProps} from "./types";
 export const TextareaComponent = styled.textarea<TextareaComponentProps>`
   outline: none;
   font-size: 17px;
-  font-weight: 500;
   padding: 9px 8px;
   border: ${props => props.isInvalid ? 2 : 1}px solid ${props => props.isInvalid ? props.theme.colors.red : '#9ca3af'};
   border-radius: 4px;
-  height: 40px;
+  height: ${props => props.height};
   resize: none;
+  font-family: Roboto, sans-serif;
 
   &[type=password] {
     font-size: 22px;

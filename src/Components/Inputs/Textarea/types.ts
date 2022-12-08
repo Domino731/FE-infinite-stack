@@ -8,14 +8,17 @@ export interface TextareaProps {
     onChange?: ChangeEventHandler;
     value?: string;
     name?: string;
+    height?: string;
 }
 
 export interface TextareaComponentProps {
     isInvalid?: boolean;
+    height?: string;
 }
 
 export interface FormikTextareaProps {
     name: string;
     label?: string;
     rows?: number;
+    height?: string;
 }

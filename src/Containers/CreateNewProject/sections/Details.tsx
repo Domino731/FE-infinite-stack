@@ -39,6 +39,6 @@ export const CreateNewProjectDetails = () => {
                       options={projectTypes}/>
         <FormikSelect label="Category" placeholder="choose from list" name="category"
                       options={projectTypeCategories}/>
-        <FormikTextarea label="Description" name="description" rows={7}/>
+        <FormikTextarea label="Description" name="description" rows={7} height="170px"/>
     </>
 }
