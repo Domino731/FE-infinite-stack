@@ -14,14 +14,18 @@ import {useMemo, useRef} from "react";
 import {useToggle} from "../../../hooks/useToggle";
 import {useOutsideClick} from "../../../hooks/useOutsideClick";
 
-export const Select = ({value, options, label, onChange, placeholder, isInvalid, error}: SelectProps) => {
+export const Select = ({value, options, label, onChange, placeholder, isInvalid, error, onBlur}: SelectProps) => {
     const {flag, handleToggleFlag, handleChangeFlag} = useToggle();
     const ref = useRef(null);
 
-    useOutsideClick(ref, () => handleChangeFlag(false));
+    useOutsideClick(ref, () => {
+        if (flag && onBlur) {
+            onBlur()
+        }
+        handleChangeFlag(false)
+    });
 
     const selectedOption = useMemo(() => options.find((el) => el.value === value), [options, value])
-
 
     return <>
         <SelectContainer inputLeftPadding={Boolean(selectedOption?.iconUrl)}>
@@ -37,7 +41,7 @@ export const Select = ({value, options, label, onChange, placeholder, isInvalid,
                           bgColor="white"
                           w="100%" bR="sm">
                 <SelectOptionsList>
-                    {options.map(({value, label, iconUrl}) => <li>
+                    {options.map(({value, label, iconUrl}) => <li key={`select-options-list-${label}`}>
                         <OptionButton onClick={(e) => {
                             e.preventDefault();
                             handleChangeFlag(false);

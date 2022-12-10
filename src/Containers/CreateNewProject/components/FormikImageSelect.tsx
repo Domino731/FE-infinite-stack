@@ -1,16 +1,27 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useDisplayImage} from "../../../hooks/useDisplayImage";
 import Box from "../../../Components/Box";
 import {Label} from "../../../Components/Inputs/styles";
 import Image from "../../../Components/Image";
 import {DetailsIconInput} from "./styles";
 import {AiOutlineUpload} from 'react-icons/ai';
+import {useField} from "formik";
 
 export const FormikImageSelect = () => {
     const {result, uploader} = useDisplayImage();
 
-    const [image, setImage] = useState<string | undefined>("");
+    const [field, meta] = useField('projectImage');
+
     const imageRef = useRef(null);
+
+    useEffect(() => {
+        field.onChange({
+            target: {
+                name: 'projectImage',
+                value: result
+            }
+        });
+    }, [result])
 
     return <Box pl="40">
         <Label>Project icon</Label>
@@ -24,8 +35,6 @@ export const FormikImageSelect = () => {
                     <input type="file"
                            id="avatar" name="avatar"
                            accept="image/png, image/jpeg" onChange={(e) => {
-                        // @ts-ignore
-                        setImage(e?.target?.files[0]);
                         uploader(e);
                     }}/>
                 </label>

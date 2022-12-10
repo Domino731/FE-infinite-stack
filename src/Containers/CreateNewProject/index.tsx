@@ -5,8 +5,9 @@ import {Button} from "../../Components/Button";
 import Flex from "../../Components/Flex";
 import {Status} from "./components/Status";
 import {Formik} from "formik";
-import {useMemo, useState} from "react";
+import {FormEvent, useMemo, useState} from "react";
 import {CREATE_NEW_PROJECT_SECTIONS} from "./const";
+import {DetailsInitialValues, DetailsValidationSchema} from "./formik";
 
 const CreateNewProject = () => {
     // default is details
@@ -19,17 +20,26 @@ const CreateNewProject = () => {
             <Status step="details"/>
             <Typograhpy2 type="HEADLINE_H4">Create new project</Typograhpy2>
             <Divider/>
-            <Formik initialValues={{}} onSubmit={() => console.log(1)}>
-                <form>
-                    <Box h="554px">
-                        {/*@ts-ignore*/}
-                        {<StepComponent/>}
-                    </Box>
-                    <Divider/>
-                    <Flex justifyContent="flex-end">
-                        <Button widthAuto>Next step</Button>
-                    </Flex>
-                </form>
+            <Formik
+                initialValues={DetailsInitialValues}
+                validationSchema={DetailsValidationSchema}
+                onSubmit={(e) => console.log(1)}
+            >
+                {(formikProps) => <form onSubmit={(event: FormEvent<HTMLFormElement>) => {
+                    event.preventDefault();
+                    formikProps.handleSubmit(event);
+                }
+                }>
+                    <>
+                        <Box h="554px">
+                            {/*@ts-ignore*/}
+                            {<StepComponent/>}
+                        </Box>
+                        <Divider/>
+                        <Flex justifyContent="flex-end">
+                            <Button widthAuto type="submit">Next step</Button>
+                        </Flex></>
+                </form>}
             </Formik>
 
         </Box>

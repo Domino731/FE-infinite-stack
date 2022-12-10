@@ -8,6 +8,7 @@ export interface SelectProps {
     placeholder?: string;
     isInvalid?: boolean;
     error?: string;
+    onBlur?: any;
 }
 
 export interface SelectOption {

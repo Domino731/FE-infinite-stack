@@ -4,6 +4,7 @@ import {Select} from "./index";
 
 export const FormikSelect = ({name, label, placeholder, options}: FormikSelectProps) => {
     const [field, meta] = useField(name);
+   
     return <Select
         value={field.value}
         options={options}
@@ -12,5 +13,9 @@ export const FormikSelect = ({name, label, placeholder, options}: FormikSelectPr
         isInvalid={meta.touched && meta.error !== undefined}
         error={meta.touched ? meta.error : undefined}
         placeholder={placeholder}
+        onBlur={(e: any) => {
+            field.onBlur({target: {name}})
+        }
+        }
     />
 }
