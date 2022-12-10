@@ -4,6 +4,7 @@ interface FlexProps {
     w?: string;
     h?: string;
     m?: string;
+    mb?: string | number;
     p?: string;
 
     justifyContent?: string;
@@ -27,6 +28,7 @@ const Flex = styled.div<FlexProps>`
   align-items: ${(props: any) => props.alignItems};
   flex-direction: ${(props: any) => props.dir};
   margin: ${(props: any) => props.m};
+  margin-bottom: ${(props: any) => props.theme.spacing[props.mb]};
   padding: ${(props: any) => props.theme.spacing[props.p]};
   padding-top: ${(props: any) => props.theme.spacing[props.pt]};
   padding-bottom: ${(props: any) => props.theme.spacing[props.pb]};

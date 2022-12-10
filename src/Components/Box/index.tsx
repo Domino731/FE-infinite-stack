@@ -6,6 +6,7 @@ interface BoxProps {
     m?: string;
     p?: string;
     pl?: string;
+    pb?: string;
 
     display?: string;
     justifyContent?: string;
@@ -44,6 +45,7 @@ const Box = styled.div<BoxProps>`
   margin: ${(props: any) => props.m};
   padding: ${(props: any) => props.theme.spacing[props.p] ?? props.p};
   padding-left: ${(props: any) => props.theme.spacing[props.pl] ?? props.pl};
+  padding-bottom: ${(props: any) => props.theme.spacing[props.pl] ?? props.pb};
 
   background-color: ${(props: any) => props.theme.colors[props.bgColor]};
   background-image: ${(props: any) => props.theme.gradients[props.bgGradient]};

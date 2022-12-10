@@ -74,6 +74,6 @@ export const SelectContainer = styled.div<SelectContainerProps>`
   position: relative;
 
   input {
-    padding-left: 50px;
+    padding-left: ${(props: any) => props.inputLeftPadding && '50px'};
   }
 `

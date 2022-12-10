@@ -1,4 +1,4 @@
-import {ChangeEventHandler} from "react";
+import {ChangeEventHandler, FocusEventHandler} from "react";
 
 export interface TextareaProps {
     label?: string;
@@ -9,6 +9,9 @@ export interface TextareaProps {
     value?: string;
     name?: string;
     height?: string;
+    onBlur?: FocusEventHandler<HTMLTextAreaElement>;
+    isInvalid?: boolean;
+    error?: string;
 }
 
 export interface TextareaComponentProps {

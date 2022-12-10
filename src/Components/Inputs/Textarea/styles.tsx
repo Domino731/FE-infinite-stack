@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {TextareaComponentProps} from "./types";
+import {ErrorMessage} from "../styles";
 
 export const TextareaComponent = styled.textarea<TextareaComponentProps>`
   outline: none;
@@ -10,6 +11,7 @@ export const TextareaComponent = styled.textarea<TextareaComponentProps>`
   height: ${props => props.height};
   resize: none;
   font-family: Roboto, sans-serif;
+  width: 100%;
 
   &[type=password] {
     font-size: 22px;
@@ -20,4 +22,10 @@ export const TextareaComponent = styled.textarea<TextareaComponentProps>`
     border: 2px solid #2563eb;
   }
 ;
+`
+
+export const TextareaErrorMessage = styled(ErrorMessage)`
+  position: static;
+  display: block;
+  padding-top: 0;
 `
