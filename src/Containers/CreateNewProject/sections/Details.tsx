@@ -23,9 +23,9 @@ export const CreateNewProjectDetails = () => {
     return <>
         <Flex>
             <Box flexGrow={1}>
-                <FormikInput name="name" label="Name"/>
-                <FormikInput name="key" label="Key"/>
-                <FormikInput name="url" label="Url"/>
+                <FormikInput name="name" label="Name" placeholder="Full name of your project"/>
+                <FormikInput name="key" label="Key" placeholder="Short key for project"/>
+                <FormikInput name="url" label="Url" placeholder="www.xyz.com"/>
             </Box>
             <FormikImageSelect/>
         </Flex>

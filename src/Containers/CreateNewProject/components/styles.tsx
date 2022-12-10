@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import uploadIcon from "../../../assets/images/project/upload.png";
+import {DetailsIconInputProps, StatusContainerProps, StatusDotProps} from "./types";
+import {ErrorMessage} from "../../../Components/Inputs/styles";
 
-export const StatusContainer = styled.div`
+export const StatusContainer = styled.div<StatusContainerProps>`
   width: 30px;
   height: 648px;
   position: absolute;
@@ -16,23 +17,42 @@ export const StatusContainer = styled.div`
     content: '';
     position: absolute;
     right: 8px;
-    height: calc(100% - 20px);
+    height: calc(${props => props.progressBarPercentage});
+    top: 14px;
+    width: 4px;
+    background: ${(props: any) => props.theme.colors.green};
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 8px;
+    height: calc(100%);
     top: 14px;
     width: 4px;
     background: ${(props: any) => props.theme.colors.white};
   }
 `
 
-export const StatusDot = styled.span`
-  display: block;
+export const StatusDot = styled.div<StatusDotProps>`
   width: 20px;
   height: 20px;
   border-radius: 6px;
-  background: ${(props: any) => props.theme.colors.white};
-  border: 2px solid ${(props: any) => props.theme.colors.black}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${(props: any) => props.theme.colors[props.icon ? 'green' : 'white']};
+  border: ${props => !props.icon ? '2' : 0}px solid ${(props: any) => props.theme.colors.black};
+
+  svg {
+    width: 60%;
+    height: 60%;
+    fill: ${(props: any) => props.theme.colors.white};
+    display: ${props => !props.icon && 'none'};
+  }
 `
 
-export const DetailsIconInput = styled.div`
+export const DetailsIconInput = styled.div<DetailsIconInputProps>`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -72,4 +92,9 @@ export const DetailsIconInput = styled.div`
       display: block;
     }
   }
+`
+
+export const FormikImageSelectErrorMessage = styled(ErrorMessage)`
+  display: block;
+  top: auto;
 `

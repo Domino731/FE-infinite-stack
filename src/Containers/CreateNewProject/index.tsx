@@ -6,18 +6,32 @@ import Flex from "../../Components/Flex";
 import {Status} from "./components/Status";
 import {Formik} from "formik";
 import {FormEvent, useMemo, useState} from "react";
-import {CREATE_NEW_PROJECT_SECTIONS} from "./const";
+import {CREATE_NEW_PROJECT_SECTIONS_DATA} from "./const";
 import {DetailsInitialValues, DetailsValidationSchema} from "./formik";
+import {CREATE_NEW_PROJECT_SECTIONS, CreateNewProjectSectionsUnion} from "./types";
 
 const CreateNewProject = () => {
     // default is details
-    const [step, setStep] = useState(CREATE_NEW_PROJECT_SECTIONS[0].key)
+    const [step, setStep] = useState(CREATE_NEW_PROJECT_SECTIONS_DATA[0].key)
+    // holding all data about project - details, team
+    const [data, setData] = useState<Record<CreateNewProjectSectionsUnion, Record<string, any> | null>>({
+            [CREATE_NEW_PROJECT_SECTIONS.DETAILS]: null,
+            [CREATE_NEW_PROJECT_SECTIONS.TEAM]: null,
+            [CREATE_NEW_PROJECT_SECTIONS.SUMMARY]: null,
+        }
+    );
 
-    const StepComponent = useMemo(() => CREATE_NEW_PROJECT_SECTIONS.find(({key}) => key === step)?.component, [step])
+    const StepComponent = useMemo(() => CREATE_NEW_PROJECT_SECTIONS_DATA.find(({key}) => key === step)?.component, [step])
+
+    // data about what steps are completed for new project
+    const completedSteps = useMemo((): Array<CreateNewProjectSectionsUnion> => {
+        return [CREATE_NEW_PROJECT_SECTIONS.DETAILS]
+        // return Object.entries(data).filter(([_, value]) => Boolean(value)).map(([key]) => key as CreateNewProjectSectionsUnion);
+    }, [data])
 
     return <Box display="flex" justifyContent="center" alignItems="center" w="100%" h="100vh" bgGradient="blue">
         <Box p="26" bR="xl" w="700px" h="800px" bgColor="white" position="relative">
-            <Status step="details"/>
+            <Status step={step} completedSteps={completedSteps}/>
             <Typograhpy2 type="HEADLINE_H4">Create new project</Typograhpy2>
             <Divider/>
             <Formik
@@ -37,7 +51,7 @@ const CreateNewProject = () => {
                         </Box>
                         <Divider/>
                         <Flex justifyContent="flex-end">
-                            <Button widthAuto type="submit">Next step</Button>
+                            <Button widthAuto type="submit" disabled={!formikProps.isValid}>Next step</Button>
                         </Flex></>
                 </form>}
             </Formik>

@@ -6,6 +6,7 @@ interface FormikInputProps {
     name: string;
     label?: string;
     type?: HTMLInputTypeAttribute;
+    placeholder?: string;
 }
 
 /**
@@ -14,7 +15,7 @@ interface FormikInputProps {
  * @param label - input label
  * @param type - input type
  * */
-export const FormikInput = ({name, label, type}: FormikInputProps) => {
+export const FormikInput = ({name, label, type, placeholder}: FormikInputProps) => {
     const [field, meta] = useField(name);
 
     return <Input
@@ -26,5 +27,6 @@ export const FormikInput = ({name, label, type}: FormikInputProps) => {
         value={field.value}
         isInvalid={meta.touched && meta.error !== undefined}
         error={meta.touched ? meta.error : undefined}
+        placeholder={placeholder}
     />
 }
