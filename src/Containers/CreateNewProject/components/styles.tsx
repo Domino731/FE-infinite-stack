@@ -37,6 +37,7 @@ export const DetailsIconInput = styled.div`
   height: 100%;
   position: absolute;
   border: 1px solid ${(props: any) => props.theme.colors['grey-input']};
+  border-radius: ${(props: any) => props.theme.borderRadius.md};
   overflow: hidden;
 
   input {
@@ -51,24 +52,24 @@ export const DetailsIconInput = styled.div`
     cursor: pointer;
     height: 100%;
     transition: 0.2s;
+  }
 
-    &::after {
-      content: "";
-      height: 100%;
-      width: 100%;
-      background-image: url(${uploadIcon});
-      background-repeat: no-repeat;
-      background-size: 50% 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(25%, 25%);
-      display: none;
-    }
+  svg {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
 
-    &:hover {
-      &::after {
-        display: block;
-      }
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+
+    svg {
+      fill: ${props => props.theme.colors.white};
+      display: block;
     }
   }
 `
