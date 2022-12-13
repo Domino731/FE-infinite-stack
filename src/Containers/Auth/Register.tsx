@@ -21,6 +21,8 @@ import {PasswordRequirements} from "./Components/PasswordRequirements";
 import {Navigate} from "react-router-dom";
 import {APP_ROUTES} from "../../Routes/const";
 import {Introduction} from "./Components/Introduction";
+import {InputSearch} from "../../Components/Inputs/InputSearch";
+import {FormikInputSearch} from "../../Components/Inputs/InputSearch/FormikInputSearch";
 
 export const Register = () => {
     const dispatch = useDispatch();
@@ -58,6 +60,13 @@ export const Register = () => {
 
                                 <FormikInput name="password" label="Password" type="password"/>
                                 <FormikInput name="passwordRepeat" label="Repeat the password" type="password"/>
+                                <FormikInputSearch label="Specialization area" options={[
+                                    {label: '123', value: '123'},
+                                    {label: 'TEST', value: '12a3'},
+                                    {label: 'TEST!@#', value: '12x3'},
+                                    {label: 'TEST123asd', value: '122233'},
+                                    {label: 'TSETSET', value: '12az3'},
+                                ]} name="specializationArea"/>
                                 <PasswordRequirements formikValues={values}/>
 
                                 {authRegisterError}
