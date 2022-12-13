@@ -21,7 +21,7 @@ export const InputSearch = ({
                                 placeholder,
                                 options
                             }: InputSearchProps) => {
-    const {flag, handleToggleFlag, handleChangeFlag} = useToggle();
+    const {flag, handleChangeFlag} = useToggle();
 
     const [inputValue, setInputValue] = useState<string>('');
 
@@ -55,23 +55,24 @@ export const InputSearch = ({
             placeholder={placeholder}
             onFocus={() => handleChangeFlag(true)}
         />
-        {flag && <Box zIndex={100} border="2px solid" borderColor="primary" top="64px" p="8" position="absolute"
-                      bgColor="white"
-                      w="100%" bR="sm">
-            <SelectOptionsList>
-                {options.map(({value, label}) => <li key={`input-search-options-list-${label}`}>
-                    <OptionButton onClick={(e) => {
-                        e.preventDefault();
-                        handleChangeFlag(false);
-                        if (onChange) {
-                            onChange(value);
-                        }
-                    }}>
-                        {label}
-                    </OptionButton>
-                </li>)}
-            </SelectOptionsList>
-        </Box>}
+        {(flag && options.length) &&
+            <Box zIndex={100} border="2px solid" borderColor="primary" top="64px" p="8" position="absolute"
+                 bgColor="white"
+                 w="100%" bR="sm">
+                <SelectOptionsList>
+                    {options.map(({value, label}) => <li key={`input-search-options-list-${label}`}>
+                        <OptionButton onClick={(e) => {
+                            e.preventDefault();
+                            handleChangeFlag(false);
+                            if (onChange) {
+                                onChange(value);
+                            }
+                        }}>
+                            {label}
+                        </OptionButton>
+                    </li>)}
+                </SelectOptionsList>
+            </Box>}
         {error && <ErrorMessage>{error}</ErrorMessage>}
     </Flex>
 }

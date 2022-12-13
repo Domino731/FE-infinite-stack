@@ -7,7 +7,7 @@ import {Button} from "../../Components/Button";
 import Link from "../../Components/Link";
 import {Formik, FormikValues} from 'formik';
 import {FormikInput} from "../../Components/Inputs/Input/FormikInput";
-import {useCallback} from "react";
+import {useCallback, useMemo} from "react";
 import {RegisterInitialValues, RegisterValidationSchema} from "./formik";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -23,6 +23,8 @@ import {APP_ROUTES} from "../../Routes/const";
 import {Introduction} from "./Components/Introduction";
 import {InputSearch} from "../../Components/Inputs/InputSearch";
 import {FormikInputSearch} from "../../Components/Inputs/InputSearch/FormikInputSearch";
+import {roles} from "../../configs/roles";
+import {SelectOption} from "../../Components/Inputs/Select/types";
 
 export const Register = () => {
     const dispatch = useDispatch();
@@ -38,6 +40,19 @@ export const Register = () => {
             dispatch(authRegister(formikValues as AuthRegisterPayload));
         }
     }, [authRegisterLoader, dispatch]);
+
+    const specializationAreas = useMemo((): Array<SelectOption> => roles.map(({key, label}) => ({
+        value: key,
+        label
+    })), []);
+
+    const specializations = useCallback((specializationArea: string) => {
+        const payload = roles.find(({key}) => key === specializationArea)?.jobs;
+        if (payload) {
+            return payload.map(({key, label}) => ({value: key, label}))
+        }
+        return [];
+    }, [])
 
     return <Flex h="100%">
         <FormColumn>
@@ -60,13 +75,11 @@ export const Register = () => {
 
                                 <FormikInput name="password" label="Password" type="password"/>
                                 <FormikInput name="passwordRepeat" label="Repeat the password" type="password"/>
-                                <FormikInputSearch label="Specialization area" options={[
-                                    {label: '123', value: '123'},
-                                    {label: 'TEST', value: '12a3'},
-                                    {label: 'TEST!@#', value: '12x3'},
-                                    {label: 'TEST123asd', value: '122233'},
-                                    {label: 'TSETSET', value: '12az3'},
-                                ]} name="specializationArea"/>
+                                <FormikInputSearch label="Specialization area" options={specializationAreas}
+                                                   name="specializationArea"/>
+                                <FormikInputSearch label="Specialization"
+                                                   options={specializations(values.specializationArea)}
+                                                   name="specialization"/>
                                 <PasswordRequirements formikValues={values}/>
 
                                 {authRegisterError}
