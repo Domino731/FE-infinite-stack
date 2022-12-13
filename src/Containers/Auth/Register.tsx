@@ -76,10 +76,14 @@ export const Register = () => {
                                 <FormikInput name="password" label="Password" type="password"/>
                                 <FormikInput name="passwordRepeat" label="Repeat the password" type="password"/>
                                 <FormikInputSearch label="Specialization area" options={specializationAreas}
-                                                   name="specializationArea"/>
+                                                   name="specializationArea"
+                                                   listHeight="200px"/>
                                 <FormikInputSearch label="Specialization"
                                                    options={specializations(values.specializationArea)}
-                                                   name="specialization"/>
+                                                   name="specialization"
+                                                   listHeight="200px"
+                                                   disabled={specializations(values.specializationArea).length === 0}
+                                />
                                 <PasswordRequirements formikValues={values}/>
 
                                 {authRegisterError}

@@ -11,7 +11,9 @@ const passwordMessage: string = 'Check password requirements below';
 export const RegisterInitialValues: Record<string, string> = {
     eMail: '',
     password: '',
-    passwordRepeat: ''
+    passwordRepeat: '',
+    specializationArea: '',
+    specialization: ''
 };
 
 /** initial values for login formik */
@@ -40,7 +42,11 @@ export const RegisterValidationSchema = Yup.object().shape({
         .minSymbols(1, passwordMessage),
     passwordRepeat: Yup.string()
         .required('Required')
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    specializationArea: Yup.string()
+        .required('Required'),
+    specialization: Yup.string()
+        .required('Required'),
 });
 
 /** validation schema for login formik */

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {SelectContainerProps, SelectIconWrapperProps} from "./types";
+import {SelectContainerProps, SelectIconWrapperProps, SelectOptionsListProps} from "./types";
 
 export const SelectIconWrapper = styled.div<SelectIconWrapperProps>`
   height: 100%;
@@ -23,8 +23,10 @@ export const SelectOptionInputIcon = styled.img`
   margin-left: 6px;
 `
 
-export const SelectOptionsList = styled.ul`
+export const SelectOptionsList = styled.ul<SelectOptionsListProps>`
   z-index: 200;
+  max-height: ${(props: any) => props.listHeight};
+  overflow: auto;
 
   li:last-of-type button {
     border-bottom: none !important;

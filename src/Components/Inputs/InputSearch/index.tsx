@@ -19,7 +19,9 @@ export const InputSearch = ({
                                 error,
                                 type,
                                 placeholder,
-                                options
+                                options,
+                                listHeight,
+                                disabled
                             }: InputSearchProps) => {
     const {flag, handleChangeFlag} = useToggle();
 
@@ -54,12 +56,13 @@ export const InputSearch = ({
             name={name}
             placeholder={placeholder}
             onFocus={() => handleChangeFlag(true)}
+            disabled={disabled}
         />
         {(flag && options.length) &&
             <Box zIndex={100} border="2px solid" borderColor="primary" top="64px" p="8" position="absolute"
                  bgColor="white"
                  w="100%" bR="sm">
-                <SelectOptionsList>
+                <SelectOptionsList listHeight={listHeight}>
                     {options.map(({value, label}) => <li key={`input-search-options-list-${label}`}>
                         <OptionButton onClick={(e) => {
                             e.preventDefault();

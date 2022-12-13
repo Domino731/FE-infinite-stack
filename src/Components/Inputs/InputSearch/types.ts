@@ -12,6 +12,8 @@ export interface InputSearchProps {
     type?: HTMLInputTypeAttribute;
     placeholder?: string;
     options: Array<InputSearchOption>;
+    listHeight?: string;
+    disabled?: boolean;
 }
 
 export interface InputSearchOption {
@@ -25,4 +27,6 @@ export interface FormikInputSearchProps {
     type?: HTMLInputTypeAttribute;
     placeholder?: string;
     options: Array<SelectOption>;
+    listHeight?: string;
+    disabled?: boolean;
 }

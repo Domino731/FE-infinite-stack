@@ -32,3 +32,7 @@ export interface SelectIconWrapperProps {
 export interface SelectContainerProps {
     inputLeftPadding: boolean;
 }
+
+export interface SelectOptionsListProps {
+    listHeight?: string;
+}

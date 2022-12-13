@@ -2,7 +2,14 @@ import {FormikInputSearchProps, InputSearchProps} from "./types";
 import {useField} from "formik";
 import {InputSearch} from "./index";
 
-export const FormikInputSearch = ({name, label, placeholder, options}: FormikInputSearchProps) => {
+export const FormikInputSearch = ({
+                                      name,
+                                      label,
+                                      placeholder,
+                                      options,
+                                      listHeight,
+                                      disabled
+                                  }: FormikInputSearchProps) => {
     const [field, meta] = useField(name);
     return <InputSearch
         value={field.value}
@@ -14,5 +21,7 @@ export const FormikInputSearch = ({name, label, placeholder, options}: FormikInp
         error={meta.touched ? meta.error : undefined}
         placeholder={placeholder}
         onBlur={field.onBlur}
+        listHeight={listHeight}
+        disabled={disabled}
     />
 }
