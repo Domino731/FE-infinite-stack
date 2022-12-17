@@ -14,6 +14,7 @@ export interface InputSearchProps {
     options: Array<InputSearchOption>;
     listHeight?: string;
     disabled?: boolean;
+    onInputChange?: (v: string) => void;
 }
 
 export interface InputSearchOption {

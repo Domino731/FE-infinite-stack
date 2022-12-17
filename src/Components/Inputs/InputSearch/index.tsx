@@ -21,7 +21,8 @@ export const InputSearch = ({
                                 placeholder,
                                 options,
                                 listHeight,
-                                disabled
+                                disabled,
+                                onInputChange
                             }: InputSearchProps) => {
     const {flag, handleChangeFlag} = useToggle();
 
@@ -43,7 +44,10 @@ export const InputSearch = ({
     const handleChangeInputValue = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         const {target: {value}} = e;
         setInputValue(value);
-    }, [])
+        if (onInputChange) {
+            onInputChange(value)
+        }
+    }, [onInputChange])
 
     return <Flex bgColor="white" dir="column" mb={20} position="relative" ref={ref}>
         {label && <Label>{label}</Label>}

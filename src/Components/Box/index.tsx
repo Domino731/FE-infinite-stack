@@ -4,6 +4,7 @@ interface BoxProps {
     w?: string;
     h?: string;
     m?: string;
+    mt?: string;
     p?: string;
     pl?: string;
     pb?: string;
@@ -43,6 +44,7 @@ const Box = styled.div<BoxProps>`
   height: ${(props: any) => props.h};
 
   margin: ${(props: any) => props.m};
+  margin-top: ${(props: any) => props.theme.spacing[props.mt]};
   padding: ${(props: any) => props.theme.spacing[props.p] ?? props.p};
   padding-left: ${(props: any) => props.theme.spacing[props.pl] ?? props.pl};
   padding-bottom: ${(props: any) => props.theme.spacing[props.pl] ?? props.pb};

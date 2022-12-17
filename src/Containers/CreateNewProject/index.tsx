@@ -12,7 +12,7 @@ import {CREATE_NEW_PROJECT_SECTIONS, CreateNewProjectSectionsUnion} from "./type
 
 const CreateNewProject = () => {
     // default is details
-    const [step, setStep] = useState<CreateNewProjectSectionsUnion>(CREATE_NEW_PROJECT_SECTIONS_DATA[0].key)
+    const [step, setStep] = useState<CreateNewProjectSectionsUnion>(CREATE_NEW_PROJECT_SECTIONS_DATA[1].key)
     // holding all data about project - details, team
     const [data, setData] = useState<Record<CreateNewProjectSectionsUnion, Record<string, any> | null>>({
             [CREATE_NEW_PROJECT_SECTIONS.DETAILS]: null,
