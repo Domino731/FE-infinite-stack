@@ -7,6 +7,7 @@ export const CREATE_NEW_PROJECT_SECTIONS_DATA: Array<CreateNewProjectSection> = 
     {label: 'Details', key: CREATE_NEW_PROJECT_SECTIONS.DETAILS, component: CreateNewProjectDetails},
     // TODO later feature: new section
     // {label: 'Tech stack', key: 'techStack'},
+    //  @ts-ignore
     {label: 'Team', key: CREATE_NEW_PROJECT_SECTIONS.TEAM, component: CreateNewProjectPeople},
     {label: 'Summary', key: CREATE_NEW_PROJECT_SECTIONS.SUMMARY, component: CreateNewProjectSummary},
 ]

@@ -1,13 +1,28 @@
 import {InputSearch} from "../../../Components/Inputs/InputSearch";
 import {Typograhpy2} from "../../../Components/Typography";
 import Box from "../../../Components/Box";
-import {ChangeEvent, useCallback, useState} from "react";
+import {ChangeEvent, useCallback, useEffect, useState} from "react";
 import Input from "../../../Components/Inputs/Input";
+import {api} from "../../../axios";
+import {Button} from "../../../Components/Button";
+import {CreateNewProjectPeopleProps} from "./types";
 
-export const CreateNewProjectPeople = () => {
-    const [id, setId] = useState<string>('');
+export const CreateNewProjectPeople = ({team, changeFormikValue}: CreateNewProjectPeopleProps) => {
+    const [uid, setUid] = useState<string>('');
 
-    const handleChangeId = useCallback((event: ChangeEvent<HTMLInputElement>) => setId(event.target.value), [])
+    console.log(team);
+    // useEffect(() => {
+    //     if(uid){
+    //         const res =
+    //     }
+    // }, [uid])
+
+    const handleChangeUid = useCallback((event: ChangeEvent<HTMLInputElement>) => setUid(event.target.value), [])
+
+    const handleAddUserToProject = useCallback(async () => {
+        const res = await api.get(`/users/${uid}`);
+        changeFormikValue('team', team ? [...team, res.data.user] : [res.data.user]);
+    }, [changeFormikValue, team, uid])
 
     return <>
         <Typograhpy2 type="HEADLINE_H6">
@@ -17,10 +32,19 @@ export const CreateNewProjectPeople = () => {
             <Input
                 label="Find user"
                 placeholder="Find user by id: #908123 or 908123"
-                value={id}
-                onChange={handleChangeId}
+                value={uid}
+                onChange={handleChangeUid}
             />
         </Box>
-
+        <Box mt="20">
+            <Button onClick={handleAddUserToProject}>Add</Button>
+        </Box>
     </>
 }
+
+// Example users uid
+// 609096
+// 180820
+// 661604
+// 948128
+// 751573

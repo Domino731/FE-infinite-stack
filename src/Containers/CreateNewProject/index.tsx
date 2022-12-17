@@ -9,6 +9,8 @@ import {FormEvent, useCallback, useMemo, useState} from "react";
 import {CREATE_NEW_PROJECT_SECTIONS_DATA} from "./const";
 import {DetailsInitialValues, DetailsValidationSchema} from "./formik";
 import {CREATE_NEW_PROJECT_SECTIONS, CreateNewProjectSectionsUnion} from "./types";
+import {CreateNewProjectDetails} from "./sections/Details";
+import {CreateNewProjectPeople} from "./sections/People";
 
 const CreateNewProject = () => {
     // default is details
@@ -20,8 +22,6 @@ const CreateNewProject = () => {
             [CREATE_NEW_PROJECT_SECTIONS.SUMMARY]: null,
         }
     );
-
-    const StepComponent = useMemo(() => CREATE_NEW_PROJECT_SECTIONS_DATA.find(({key}) => key === step)?.component, [step])
 
     // data about what steps are completed for new project
     const completedSteps = useMemo((): Array<CreateNewProjectSectionsUnion> => {
@@ -35,13 +35,15 @@ const CreateNewProject = () => {
         setStep(nextStep)
     }, [step])
 
+
     return <Box display="flex" justifyContent="center" alignItems="center" w="100%" h="100vh" bgGradient="blue">
         <Box p="26" bR="xl" w="700px" h="800px" bgColor="white" position="relative">
             <Status step={step} completedSteps={completedSteps}/>
             <Typograhpy2 type="HEADLINE_H4">Create new project</Typograhpy2>
             <Divider/>
             <Formik
-                initialValues={DetailsInitialValues}
+                // initialValues={DetailsInitialValues}
+                initialValues={{}}
                 validationSchema={DetailsValidationSchema}
                 onSubmit={handleSubmit}
             >
@@ -52,8 +54,12 @@ const CreateNewProject = () => {
                 }>
                     <>
                         <Box h="554px">
-                            {/*@ts-ignore*/}
-                            {<StepComponent/>}
+                            {step === CREATE_NEW_PROJECT_SECTIONS.DETAILS && <CreateNewProjectDetails/>}
+                            {step === CREATE_NEW_PROJECT_SECTIONS.TEAM &&
+                                // @ts-ignore
+                                <CreateNewProjectPeople team={formikProps.values.team}
+                                                        changeFormikValue={formikProps.setFieldValue}/>}
+
                         </Box>
                         <Divider/>
                         <Flex justifyContent="flex-end">

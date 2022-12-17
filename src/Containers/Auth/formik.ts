@@ -6,8 +6,6 @@ YupPassword(Yup);
 const passwordMessage: string = 'Check password requirements below';
 
 
-
-
 //// Initial values
 
 /** initial values for register formik */
@@ -21,8 +19,8 @@ export const RegisterInitialValues: Record<string, string> = {
 
 /** initial values for login formik */
 export const LoginInitialValues: Record<string, string> = {
-    eMail: '',
-    password: ''
+    eMail: 'admin@gmail.com',
+    password: 'asdaop12390-asd@asdA'
 }
 
 //// Validation schemas

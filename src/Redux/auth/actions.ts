@@ -10,7 +10,7 @@ export const authRegister = createAsyncThunk(
     AUTH_CONSTANTS.REGISTER,
     async (payload: AuthRegisterPayload, {rejectWithValue}) => {
         try {
-            const response = await api.post('/users', payload);
+            const response = await api.post('/users/register', payload);
             return response;
         } catch (response: any) {
             return rejectWithValue(response?.response?.data?.message);
