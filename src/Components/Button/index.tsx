@@ -1,22 +1,14 @@
-import styled from "styled-components";
-
-interface ButtonProps {
-    disabled?: boolean;
-    widthAuto?: boolean;
-}
+import styled, {css} from "styled-components";
+import {BUTTON_SIZES, ButtonProps} from "./types";
+import {prop, ifProp, switchProp} from "styled-tools";
 
 export const Button = styled.button<ButtonProps>`
   width: ${(props: any) => props.widthAuto ? 'auto' : '100%'};
-  height: 40px;
   background-color: ${(props: any) => props.theme.colors['blue']};
   color: white;
   font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  letter-spacing: 1px;
+  font-weight: 600;
   border: none;
-  border-radius: 4px;
-  padding: 0 20px;
 
   &:hover {
     cursor: pointer;
@@ -24,6 +16,28 @@ export const Button = styled.button<ButtonProps>`
   }
 
   &:disabled {
-    opacity: 0.7;
+    opacity: 0.9;
+    cursor: not-allowed;
   }
+
+  ${switchProp("size", {
+    [BUTTON_SIZES.LG]: css`
+      height: 50px;
+      font-size: 19px;
+      border-radius: 12px;
+      padding: 0 24px;
+    `,
+    [BUTTON_SIZES.MD]: css`
+      height: 40px;
+      font-size: 16px;
+      border-radius: 11px;
+      padding: 0 20px;
+    `,
+    [BUTTON_SIZES.SM]: css`
+      height: 32px;
+      font-size: 14px;
+      border-radius: 10px;
+      padding: 0 18px;
+    `,
+  })}
 `

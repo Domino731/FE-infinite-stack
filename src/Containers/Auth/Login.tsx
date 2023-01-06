@@ -65,7 +65,9 @@ export const Login = () => {
                                     <span/>
                                     <Link to="/password-recovery" label="Forgot password?"/>
                                 </Flex>
-                                <Button type="submit" disabled={authLoginLoader}>Login</Button>
+                                <Button type="submit" disabled={authLoginLoader} size="LG">Login</Button>
+                                <Button type="submit" widthAuto disabled={authLoginLoader} size="MD">Login</Button>
+                                <Button type="submit" widthAuto disabled={authLoginLoader} size="SM">Login</Button>
                             </form>
                         }
                     }
