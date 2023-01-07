@@ -1,18 +1,16 @@
 import styled, {css} from "styled-components";
-import {BUTTON_SIZES, ButtonProps} from "./types";
+import {BUTTON_SIZES, BUTTON_VARIANTS, ButtonProps} from "./types";
 import {prop, ifProp, switchProp} from "styled-tools";
 
 export const Button = styled.button<ButtonProps>`
   width: ${(props: any) => props.widthAuto ? 'auto' : '100%'};
-  background-color: ${(props: any) => props.theme.colors['blue']};
-  color: white;
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
   border: none;
 
+  // pseudo-classes
   &:hover {
     cursor: pointer;
-    background-color: ${(props: any) => !props.disabled && props.theme.colors['blue-600']};
   }
 
   &:disabled {
@@ -20,6 +18,34 @@ export const Button = styled.button<ButtonProps>`
     cursor: not-allowed;
   }
 
+  // button styles by variant (background, hover, border)
+  ${switchProp("variant", {
+    [BUTTON_VARIANTS.CONTAINED]: css`
+      background-color: ${(props: any) => props.theme.colors['blue']};
+      color: white;
+
+      &:hover {
+        background-color: ${(props: any) => !props.disabled && props.theme.colors['blue-600']};
+      }
+    `,
+    [BUTTON_VARIANTS.OUTLINE]: css`
+      border: 1px solid ${(props: any) => props.theme.colors['blue']};
+      color: ${(props: any) => props.theme.colors['blue']};
+
+      &:hover {
+        color: ${(props: any) => !props.disabled && props.theme.colors['blue-600']};
+        border: 1px solid ${(props: any) => props.theme.colors['blue-600']};
+      }
+    `,
+
+    [BUTTON_VARIANTS.TEXT]: css`
+      color: ${(props: any) => props.theme.colors['blue']};
+
+      &:hover {
+        color: ${(props: any) => !props.disabled && props.theme.colors['blue-600']};
+      }
+    `
+  })} // button spacing
   ${switchProp("size", {
     [BUTTON_SIZES.LG]: css`
       height: 50px;
