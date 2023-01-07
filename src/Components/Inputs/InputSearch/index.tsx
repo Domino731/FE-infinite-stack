@@ -61,11 +61,13 @@ export const InputSearch = ({
             placeholder={placeholder}
             onFocus={() => handleChangeFlag(true)}
             disabled={disabled}
+            // @ts-ignore
+            size="LG"
         />
         {(flag && options.length) &&
-            <Box zIndex={100} border="2px solid" borderColor="primary" top="64px" p="8" position="absolute"
+            <Box zIndex={100} border="2px solid" borderColor="primary" top="80px" p="8" position="absolute"
                  bgColor="white"
-                 w="100%" bR="sm">
+                 w="100%" bR="10px">
                 <SelectOptionsList listHeight={listHeight}>
                     {options.map(({value, label}) => <li key={`input-search-options-list-${label}`}>
                         <OptionButton onClick={(e) => {
