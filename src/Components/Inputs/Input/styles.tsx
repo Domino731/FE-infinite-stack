@@ -1,17 +1,12 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
+import {INPUT_SIZES, InputComponentProps} from "./types";
+import {switchProp} from "styled-tools";
 
-interface InputComponentProps {
-    isInvalid?: boolean;
-}
 
 export const InputComponent = styled.input<InputComponentProps>`
   outline: none;
-  font-size: 17px;
   font-weight: 500;
-  padding: 9px 8px;
   border: ${props => props.isInvalid ? 2 : 1}px solid ${props => props.isInvalid ? props.theme.colors.red : '#9ca3af'};
-  border-radius: 4px;
-  height: 40px;
 
   &[type=password] {
     font-size: 22px;
@@ -21,5 +16,25 @@ export const InputComponent = styled.input<InputComponentProps>`
   &:focus {
     border: 2px solid ${props => props.theme.colors.primary};
   }
-;
+
+  ${switchProp("size", {
+    [INPUT_SIZES.LG]: css`
+      height: 50px;
+      font-size: 19px;
+      border-radius: 10px;
+      padding: 0 14px;
+    `,
+    [INPUT_SIZES.MD]: css`
+      height: 40px;
+      font-size: 16px;
+      border-radius: 8px;
+      padding: 0 10px;
+    `,
+    [INPUT_SIZES.SM]: css`
+      height: 32px;
+      font-size: 14px;
+      border-radius: 7px;
+      padding: 0 6px;
+    `
+  })}
 `

@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import {BUTTON_SIZES, BUTTON_VARIANTS, ButtonProps} from "./types";
-import {prop, ifProp, switchProp} from "styled-tools";
+import {switchProp} from "styled-tools";
 
 export const Button = styled.button<ButtonProps>`
   width: ${(props: any) => props.widthAuto ? 'auto' : '100%'};
@@ -50,19 +50,19 @@ export const Button = styled.button<ButtonProps>`
     [BUTTON_SIZES.LG]: css`
       height: 50px;
       font-size: 19px;
-      border-radius: 12px;
+      border-radius: 10px;
       padding: 0 24px;
     `,
     [BUTTON_SIZES.MD]: css`
       height: 40px;
       font-size: 16px;
-      border-radius: 11px;
+      border-radius: 8px;
       padding: 0 20px;
     `,
     [BUTTON_SIZES.SM]: css`
       height: 32px;
       font-size: 14px;
-      border-radius: 10px;
+      border-radius: 7px;
       padding: 0 18px;
     `,
   })}

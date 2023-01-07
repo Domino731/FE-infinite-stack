@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const Label = styled.label`
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
-  padding-bottom: 1px;
+  padding-bottom: 6px;
 `
 
 

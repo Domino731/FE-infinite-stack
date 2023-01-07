@@ -1,21 +1,9 @@
 import {InputComponent} from "./styles";
-import {ChangeEventHandler, FocusEventHandler, HTMLInputTypeAttribute} from "react";
 import {Label, ErrorMessage} from "../styles";
 import Flex from "../../Flex";
+import {INPUT_SIZES, InputProps} from "./types";
 
-interface InputProps {
-    label?: string;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    value?: string;
-    name?: string;
-    onBlur?: FocusEventHandler<HTMLInputElement>;
-    isInvalid?: boolean;
-    error?: string;
-    type?: HTMLInputTypeAttribute;
-    placeholder?: string;
-}
 
-// style={{backgroundColor: 'white', display: 'flex', flexDirection: 'column', marginBottom: '20px'}}
 const Input = ({label, onChange, value, name, onBlur, isInvalid, error, type, placeholder}: InputProps) => {
     return <Flex bgColor="white" dir="column" mb={20} position="relative">
         {label && <Label>{label}</Label>}
@@ -23,8 +11,12 @@ const Input = ({label, onChange, value, name, onBlur, isInvalid, error, type, pl
             type={type}
             onBlur={onBlur}
             isInvalid={isInvalid}
-            onChange={onChange} value={value} name={name}
+            onChange={onChange}
+            value={value}
+            name={name}
             placeholder={placeholder}
+            // @ts-ignore
+            size={INPUT_SIZES.LG}
         />
         {error && <ErrorMessage>{error}</ErrorMessage>}
     </Flex>
