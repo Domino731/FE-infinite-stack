@@ -49,7 +49,7 @@ export const Login = () => {
                         <Typograhpy2 type="HEADLINE_H4" p="0 0 62px 0">LOG INTO YOUR ACCOUNT</Typograhpy2>
 
                         <FormikInput name="eMail" label="E-mail"/>
-                        <FormikInput name="password" label="Password"/>
+                        <FormikInput name="password" label="Password" type="password"/>
 
                         {authLoginError}
 

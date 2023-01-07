@@ -39,3 +39,23 @@ export const InputComponent = styled.input<InputComponentProps>`
     `
   })}
 `
+
+export const InputIconWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 36px;
+  transform: translate(100%, -50%);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    transform: scale(1.3);
+  }
+`
