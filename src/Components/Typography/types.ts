@@ -4,6 +4,7 @@ export interface TypographyProps {
     pt?: string;
     pb?: string;
     pr?: string;
+    p?: string;
     color?: string;
 }
 

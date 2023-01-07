@@ -37,7 +37,7 @@ export const typography = {
         [TYPOGRAPHY_TYPE.HEADLINE_H1]: '56px',
         [TYPOGRAPHY_TYPE.HEADLINE_H2]: '48px',
         [TYPOGRAPHY_TYPE.HEADLINE_H3]: '40px',
-        [TYPOGRAPHY_TYPE.HEADLINE_H4]: '32px',
+        [TYPOGRAPHY_TYPE.HEADLINE_H4]: '700',
         [TYPOGRAPHY_TYPE.HEADLINE_H5]: '24px',
         [TYPOGRAPHY_TYPE.HEADLINE_H6]: '18px',
 

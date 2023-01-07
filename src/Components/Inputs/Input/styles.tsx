@@ -7,6 +7,7 @@ export const InputComponent = styled.input<InputComponentProps>`
   outline: none;
   font-weight: 500;
   border: ${props => props.isInvalid ? 2 : 1}px solid ${props => props.isInvalid ? props.theme.colors.red : '#9ca3af'};
+  width: 100%;
 
   &[type=password] {
     font-size: 22px;

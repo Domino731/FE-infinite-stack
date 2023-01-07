@@ -16,6 +16,7 @@ export const colors = {
     "black": "#000000",
     primary: '#3a86ff',
     secondary: '#ff006e',
+    aqua: '#4be0ef',
 
     "red": "#f44336",
     "red-50": "#ffebee",

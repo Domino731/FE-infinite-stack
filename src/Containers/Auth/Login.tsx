@@ -2,7 +2,7 @@ import Flex from "../../Components/Flex";
 import Box from "../../Components/Box";
 import {FormColumn} from "./Components/FormColumn";
 import {Logo} from "../../Components/Logo";
-import {Typography} from "../../Components/Typography";
+import {Typograhpy2, Typography} from "../../Components/Typography";
 import {Button} from "../../Components/Button";
 import Link from "../../Components/Link";
 import {Formik, FormikValues} from 'formik';
@@ -17,9 +17,7 @@ import {
 } from "../../Redux/auth/selectors";
 import {authLogin} from "../../Redux/auth/actions";
 import {AuthLoginPayload} from "../../Redux/auth/types";
-import {Navigate} from 'react-router-dom';
-import {APP_ROUTES} from "../../Routes/const";
-import {Introduction} from "./Components/Introduction";
+import {AuthContainer} from "./Components/AuthContainer";
 
 export const Login = () => {
     // other hooks
@@ -39,51 +37,36 @@ export const Login = () => {
         }
     }, [authLoginLoader, dispatch]);
 
-    return <Flex h="100%">
-        <FormColumn>
-            <Box h="20%" position='absolute'>
-                <Logo/>
-            </Box>
-            <Box h="100%" display="flex" justifyContent="center" alignItems="center">
-                <Box h="auto" m="0 auto" p="32px 16px" w="500px" bgColor="white" bR="16px">
-                    <Formik
-                        initialValues={LoginInitialValues}
-                        onSubmit={handleLogin}
-                        // validationSchema={LoginValidationSchema}
-                    >{
-                        ({handleSubmit}) => {
+    return <AuthContainer>
+        <Box h="auto" p="32px 24px" w="500px" bgColor="white" bR="24px">
+            <Formik
+                initialValues={LoginInitialValues}
+                onSubmit={handleLogin}
+                // validationSchema={LoginValidationSchema}
+            >{
+                ({handleSubmit}) => {
+                    return <form onSubmit={handleSubmit}>
+                        <Typograhpy2 type="HEADLINE_H4" p="0 0 62px 0">LOG INTO YOUR ACCOUNT</Typograhpy2>
 
-                            return <form onSubmit={handleSubmit}>
-                                <Typography>LOG INTO YOUR ACCOUNT</Typography>
+                        <FormikInput name="eMail" label="E-mail"/>
+                        <FormikInput name="password" label="Password"/>
 
-                                <FormikInput name="eMail" label="E-mail"/>
-                                <FormikInput name="password" label="Password"/>
+                        {authLoginError}
 
-                                {authLoginError}
+                        <Flex justifyContent="space-between" m="0 0 25px 0">
+                            <span/>
+                            <Link to="/password-recovery" label="Forgot password?"/>
+                        </Flex>
+                        <Button type="submit" disabled={authLoginLoader} variant="CONTAINED"
+                                size="LG">Login</Button>
+                    </form>
+                }
+            }
 
-                                <Flex justifyContent="space-between" m="0 0 20px 0">
-                                    <span/>
-                                    <Link to="/password-recovery" label="Forgot password?"/>
-                                </Flex>
-                                <Button type="submit" disabled={authLoginLoader} variant="OUTLINE"
-                                        size="LG">Login</Button>
-                            </form>
-                        }
-                    }
-
-                    </Formik>
-                    <Flex m="30px 0 0 0" justifyContent="center">
-                        <Link to="/register" label="Don't have an account yet? create free"/>
-                    </Flex>
-                </Box>
-            </Box>
-        </FormColumn>
-        <Introduction>
-            <h1>YOUR NEW<br/>
-                ULTIMATE AGILE APP
-            </h1>
-        </Introduction>
-        {/*redirect to dashboard if user is logged*/}
-        {isUserLogged && <Navigate to={APP_ROUTES.DASHBOARD}/>}
-    </Flex>
+            </Formik>
+            <Flex m="30px 0 0 0" justifyContent="center">
+                <Link to="/register" label="Don't have an account yet? create free"/>
+            </Flex>
+        </Box>
+    </AuthContainer>
 }

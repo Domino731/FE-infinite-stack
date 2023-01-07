@@ -10,10 +10,14 @@ export const Typography = styled.p`
 
 export const Typograhpy2 = styled.p<TypographyProps>`
   font-size: ${(props) => props.theme.typography.fontSize[props.type]};
+  font-weight: ${(props) => props.theme.typography.fontWeight[props.type]};;
   text-align: ${props => props.align};
   padding-top: ${(props: any) => props.pt && props.theme.spacing[props.pt]};
-  padding-bottom: ${(props: any) => props.pt && props.theme.spacing[props.pb]};
+  padding-bottom: ${(props: any) => {
+    return props.pt && props.theme.spacing[props.pb];
+  }};
   padding-right: ${(props: any) => props.theme.spacing[props.pr]};
   padding-left: ${(props: any) => props.pt && props.theme.spacing[props.pl]};
+  padding: ${props => props.p};
   color: ${(props: any) => props.theme.colors[props.color]}
 `
