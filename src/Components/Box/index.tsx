@@ -68,7 +68,7 @@ const Box = styled.div<BoxProps>`
   align-items: ${(props: any) => props.alignItems};
   flex-grow: ${(props: any) => props.flexGrow};
 
-  box-shadow: ${(props: any) => props.boxShadow && props.theme.boxShadow[props.boxShadow]};
+  box-shadow: ${(props: any) => props.theme.boxShadow[props.boxShadow] ?? props.boxShadow};
 
   z-index: ${(props: any) => props.zIndex};
   overflow: ${(props: any) => props.overflow};

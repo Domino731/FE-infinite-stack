@@ -11,7 +11,6 @@ import {APP_ROUTES} from "./Routes/const";
 import {Login, Register} from "./Containers/Auth";
 import {Provider} from 'react-redux'
 import {store} from "./Redux";
-import {ProtectedRoute} from "./Components/Routes";
 import Introduction from "./Containers/Introduction";
 import Dashboard from "./Containers/Dashboard";
 import CreateNewProject from "./Containers/CreateNewProject";

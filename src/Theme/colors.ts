@@ -12,6 +12,7 @@ export const colors = {
     white: '#f0f9ff',
     "white-50": '#e1e1e1',
     "white-100": '#e3e3e3',
+    "white-200": '#dddde1',
     "transparent": "transparent",
     "black": "#000000",
     primary: '#3a86ff',

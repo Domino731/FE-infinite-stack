@@ -8,7 +8,7 @@ export const LeftPanelContainer = styled.section`
 `
 
 export const LeftPanelList = styled.ul`
-  margin-bottom: 64px;
+
 `
 
 export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`

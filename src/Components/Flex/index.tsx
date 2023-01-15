@@ -18,6 +18,8 @@ interface FlexProps {
 
     transform?: string;
     zIndex?: string | number;
+
+    boxShadow?: string;
 }
 
 const Flex = styled.div<FlexProps>`
@@ -37,6 +39,7 @@ const Flex = styled.div<FlexProps>`
   position: ${(props: any) => props.position};
   transform: ${(props: any) => props.transform};
   z-index: ${(props: any) => props.zIndex};
+  box-shadow: ${(props) => props.boxShadow};
 `
 
 export default Flex;
