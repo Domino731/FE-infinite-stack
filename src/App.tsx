@@ -14,6 +14,7 @@ import {store} from "./Redux";
 import Introduction from "./Containers/Introduction";
 import Dashboard from "./Containers/Dashboard";
 import CreateNewProject from "./Containers/CreateNewProject";
+import {TEST} from "./TEST";
 
 function App() {
     return (
@@ -28,6 +29,8 @@ function App() {
                         <Route path={`${APP_ROUTES.DASHBOARD}/*`}
                                element={<Dashboard>DASHBOARD</Dashboard>}/>
                         <Route path={APP_ROUTES.CREATE_NEW_PROJECT} element={<CreateNewProject/>}/>
+                        {/*TODO before release: remove this route*/}
+                        <Route path={'/TEST'} element={<TEST/>}/>
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider></Provider>
