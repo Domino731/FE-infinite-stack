@@ -17,6 +17,12 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
   font-size: 20px;
   margin-bottom: 4px;
 
+  &:hover {
+    div {
+      box-shadow: 2px 2px ${(props: any) => props.theme.colors[props.isActive ? 'transparent' : 'primary']} inset, -2px -2px ${(props: any) => props.theme.colors[props.isActive ? 'transparent' : 'primary']} inset !important;
+    }
+  }
+
   a {
     display: flex;
     align-items: center;
