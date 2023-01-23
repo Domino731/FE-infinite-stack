@@ -12,6 +12,7 @@ interface FlexProps {
     dir?: string;
 
     border?: string;
+    borderRadius?: string;
     bgColor?: string;
 
     position?: string;
@@ -40,6 +41,7 @@ const Flex = styled.div<FlexProps>`
   transform: ${(props: any) => props.transform};
   z-index: ${(props: any) => props.zIndex};
   box-shadow: ${(props) => props.boxShadow};
+  border-radius: ${(props) => props.borderRadius};;
 `
 
 export default Flex;

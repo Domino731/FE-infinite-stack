@@ -19,7 +19,9 @@ const ListItem = ({title, icon, route}: ListItemProps) => {
 
     return <LeftPanelListItem isActive={Boolean(match)}>
         <Link to={`${APP_ROUTES.DASHBOARD + route}`}>
-            {icon}
+            <div>
+                {icon}
+            </div>
             <Typograhpy2 type="HEADLINE_H6">{title}</Typograhpy2>
         </Link>
     </LeftPanelListItem>

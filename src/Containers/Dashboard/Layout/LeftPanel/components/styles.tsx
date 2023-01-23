@@ -15,7 +15,7 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
   display: flex;
   align-items: center;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 4px;
 
   a {
     display: flex;
@@ -28,9 +28,15 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
     }
   }
 
+  div {
+    border-radius: 4px;
+    padding: 10px;
+    background-color: ${(props: any) => props.theme.colors[props.isActive ? 'primary' : 'transparent']};
+  }
+
   svg {
-    fill: ${(props: any) => props.theme.colors[props.isActive ? 'primary' : 'grey-700']};
-    stroke: ${(props: any) => props.theme.colors[props.isActive ? 'primary' : 'grey-700']};
+    fill: ${(props: any) => props.theme.colors[props.isActive ? 'white' : 'grey-700']};
+    stroke: ${(props: any) => props.theme.colors[props.isActive ? 'white' : 'grey-700']};
     width: 1.1em;
     height: 1.1em;
   }

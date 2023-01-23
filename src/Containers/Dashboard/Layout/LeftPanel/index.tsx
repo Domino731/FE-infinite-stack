@@ -6,8 +6,8 @@ import Flex from "../../../../Components/Flex";
 import {BottomPanel} from "./components/BottomPanel";
 
 const LeftPanel = () => {
-    return <Flex dir="column" w="340px" h="100%">
-        <Box p="24px" h="calc(100% - 200px)" bgColor="white-200" boxShadow="2px 0px 5px black inset">
+    return <Flex dir="column" w="340px" h="100%" p="24" boxShadow="2px 0px 5px black inset">
+        <Box h="100%">
             <ProjectInfo/>
             <Divider/>
             <LeftPanelNavigation/>
