@@ -67,3 +67,5 @@ export const Button = styled.button<ButtonProps>`
     `,
   })}
 `
+
+export const ButtonNoStyles = styled.button``

@@ -30,7 +30,7 @@ const ListItem = ({title, icon, route, items}: ListItemProps) => {
 
     if (items) {
         return <Box>
-            <LeftPanelListItem isActive={Boolean(match)} onClick={handleToggleFlag}>
+            <LeftPanelListItem isActive={flag} listMode onClick={handleToggleFlag}>
                 <div>
                     {icon}
                 </div>
@@ -39,9 +39,13 @@ const ListItem = ({title, icon, route, items}: ListItemProps) => {
             {flag && <LeftPanelAccordionList>
                 {items.map(({name, color}, index) => <LeftPanelAccordionItem
                     key={`left-panel-accordion-list-item-${index}`}>
-                    <LeftPanelAccordionIcon color={color}>{index}</LeftPanelAccordionIcon>
+                    <LeftPanelAccordionIcon color={color}>{index + 1}</LeftPanelAccordionIcon>
                     {name}
                 </LeftPanelAccordionItem>)}
+                <LeftPanelAccordionItem>
+                    <LeftPanelAccordionIcon color="black">+</LeftPanelAccordionIcon>
+                    Add new
+                </LeftPanelAccordionItem>
             </LeftPanelAccordionList>}
         </Box>
     }

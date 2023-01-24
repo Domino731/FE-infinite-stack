@@ -11,4 +11,5 @@ export interface ListItemProps {
 // styled components
 export interface LeftPanelListItemProps {
     isActive: boolean;
+    listMode?: boolean;
 }

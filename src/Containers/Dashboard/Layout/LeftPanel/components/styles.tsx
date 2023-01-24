@@ -16,8 +16,11 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
   align-items: center;
   font-size: 20px;
   margin-bottom: 4px;
+  background: ${props => props.theme.colors.white};
 
   &:hover {
+    cursor: pointer;
+
     div {
       box-shadow: 2px 2px ${(props: any) => props.theme.colors[props.isActive ? 'transparent' : 'primary']} inset, -2px -2px ${(props: any) => props.theme.colors[props.isActive ? 'transparent' : 'primary']} inset !important;
     }
@@ -56,7 +59,10 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
 
 export const LeftPanelAccordionList = styled.ul`
   padding-left: 43px;
-  border-bottom: 1px solid ${props => props.};
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid ${props => props.theme.colors.grey};
+
   li:first-child::after {
     display: none !important;
   }
@@ -96,4 +102,5 @@ export const LeftPanelAccordionIcon = styled.span<{ color: string }>`
   height: 20px;
   margin-right: 8px;
   border-radius: 4px;
+  box-shadow: 0 0 5px 0 ${props => props.color};
 `
