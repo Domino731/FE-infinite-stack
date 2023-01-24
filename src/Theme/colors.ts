@@ -14,10 +14,12 @@ export const colors = {
     "white-100": '#e3e3e3',
     "white-200": '#dddde1',
     "transparent": "transparent",
-    "black": "#000000",
     primary: '#3a86ff',
     secondary: '#ff006e',
     aqua: '#4be0ef',
+    "black": "#000000",
+    "black-100": "#222222",
+
 
     "red": "#f44336",
     "red-50": "#ffebee",

@@ -52,4 +52,48 @@ export const LeftPanelListItem = styled.li<LeftPanelListItemProps>`
     color: ${(props: any) => props.theme.colors[props.isActive ? 'primary' : 'grey-700']};
     font-weight: 600;
   }
+`;
+
+export const LeftPanelAccordionList = styled.ul`
+  padding-left: 43px;
+  border-bottom: 1px solid ${props => props.};
+  li:first-child::after {
+    display: none !important;
+  }
+`
+
+
+export const LeftPanelAccordionItem = styled.li`
+  position: relative;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  color: ${props => props.theme.colors['black-100']};
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 40px;
+    height: 31px;
+    left: -24px;
+    top: -17px;
+    border-left: 3px solid ${props => props.theme.colors.primary};
+    border-bottom: 3px solid ${props => props.theme.colors.primary};
+  }
+`
+
+export const LeftPanelAccordionIcon = styled.span<{ color: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.colors.white};
+  background-color: ${props => props.color};
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
 `
